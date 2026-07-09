@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Favela Brass · Lei Rouanet 2027 · Reserve seu orçamento de incentivo</title>
+<meta name="description" content="O plano anual 2027 da Favela Brass será protocolado no Ministério da Cultura até 30/11/2026. Reserve agora o orçamento de incentivo fiscal de 2027 da sua empresa e assine o contrato na aprovação.">
+<meta property="og:title" content="Favela Brass · Lei Rouanet 2027">
+<meta property="og:description" content="Proposta do plano anual 2027: 272 vagas de educação musical no Rio de Janeiro. Reserve o orçamento Rouanet da sua empresa agora, contrato na aprovação do MinC.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rouanet.favelabrass.org/img/02-copa-palace-bezerra.jpg">
+<meta property="og:url" content="https://rouanet.favelabrass.org/2027/">
+<meta property="og:site_name" content="Favela Brass">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#1F052F">
+<link rel="canonical" href="https://rouanet.favelabrass.org/2027/">
+<link rel="preload" as="image" href="../img/02-copa-palace-bezerra.jpg">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../img/favicon-48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..1000&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="../shared/fb-rouanet.css">
+
+<!-- ================================================================
+     YEAR-DATA START (2027) · fontes verificadas em 09/07/2026
+     Página de PROPOSTA: sem PRONAC, sem valor aprovado, sem captação.
+     Atualizar nos marcos:
+       1. Protocolo no MinC (até 30/11/2026): badge "em elaboração" vira
+          "protocolado, em análise no Ministério da Cultura".
+       2. Aprovação (esperada início de 2027): preencher PRONAC, valor
+          aprovado e barra de captação (copiar da página 2026); flipar o
+          redirect da raiz (/index.html) para /2027/.
+
+     Situação atual:       proposta em elaboração
+     Protocolo:            até 30/11/2026 (SALIC)
+     Aprovação esperada:   início de 2027
+     PRONAC:               a definir (não inventar)
+     Envelope:             mesmo porte de 2026 (~R$ 2,36 milhões; valor final no protocolo)
+     Vagas alvo:           272 (144 escolas + 48 Pereira Passos + 80 comunidade)
+     Escolas 2a (6):       Vital Brasil, Estados Unidos, Mem de Sá, Maria Leopoldina,
+                           Machado de Assis, Senador Corrêa (nova em 2027)
+     Escola 2b:            E.M. Pereira Passos (contraturno, 48 vagas)
+     Vídeos didáticos:     16
+     Apresentações:        mesma estrutura de 2026 (30 públicas + 3 parceiros + 6 didáticas + encerramentos)
+     Captação histórica:   R$ 700 mil (2023) · R$ 900 mil (2024) · R$ 1.014 mil (2025) ·
+                           R$ 1.110 mil (2026, até jul, em andamento)
+     Fatos institucionais: iguais à página 2026 (ver YEAR-DATA de /2026/)
+     CNPJ:                 37.332.605/0001-90
+     Contato:              Tom Ashe · (21) 99109-4882 · tom@favelabrass.org
+     Carimbo dos dados:    julho de 2026
+     ================================================================
+     YEAR-DATA END -->
+
+<style>
+/* ===== Page-specific: proposta 2027 ===== */
+
+.year-switch {
+  display: inline-flex;
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.year-switch a {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 0.4rem 0.85rem;
+  transition: color 0.2s, background 0.2s;
+}
+.year-switch a:hover { color: var(--yellow); }
+.year-switch a.active { background: rgba(255,255,255,0.14); color: var(--white); }
+
+/* Honest status badge in the hero */
+.status-badge {
+  display: inline-block;
+  transform: rotate(-2deg);
+  border: 2px solid var(--yellow);
+  border-radius: 4px;
+  background: rgba(31, 5, 47, 0.75);
+  color: var(--yellow);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.1rem;
+  margin-bottom: 1.6rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Status / roadmap box */
+.status-box {
+  border: 1px solid rgba(254, 241, 0, 0.4);
+  border-radius: 10px;
+  background: linear-gradient(130deg, rgba(254, 241, 0, 0.07) 0%, rgba(255, 255, 255, 0.02) 55%);
+  padding: clamp(2rem, 4vw, 3.4rem);
+}
+.status-box h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 480;
+  color: var(--white);
+  margin-bottom: 1.8rem;
+}
+.roadmap { list-style: none; border-top: 1px solid var(--rule); }
+.roadmap li {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 1.4rem;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.roadmap .rm-when {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--yellow);
+}
+.roadmap .rm-what { font-size: 0.98rem; color: var(--text); }
+.roadmap .rm-done .rm-when { color: var(--green); }
+.status-fine {
+  margin-top: 1.6rem;
+  font-size: 0.84rem;
+  color: var(--text-faint);
+  max-width: 68ch;
+  line-height: 1.6;
+}
+
+/* Produtos grid (same as 2026) */
+.produto-card { display: flex; flex-direction: column; }
+.produto-fig {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: 2.6rem;
+  font-weight: 450;
+  line-height: 1;
+  color: var(--yellow);
+  letter-spacing: -0.02em;
+}
+.produto-fig small {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-left: 0.4rem;
+}
+.produto-card h3 { margin-top: 1rem; }
+
+/* School list */
+.school-list {
+  columns: 2;
+  column-gap: clamp(2rem, 4vw, 4rem);
+  list-style: none;
+  margin-top: 1.4rem;
+}
+.school-list li {
+  break-inside: avoid;
+  display: flex;
+  gap: 0.9rem;
+  align-items: baseline;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--text);
+  font-size: 1rem;
+}
+.school-list li::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--yellow);
+  flex: none;
+  align-self: center;
+}
+.school-new {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple-ink);
+  background: var(--yellow);
+  border-radius: 3px;
+  padding: 0.18rem 0.5rem;
+  margin-left: 0.6rem;
+  white-space: nowrap;
+}
+
+/* Mecanismo (same pattern as 2026) */
+.mecanismo-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.mec-deduction {
+  text-align: center;
+  border: 1px solid rgba(254,241,0,0.4);
+  border-radius: 10px;
+  padding: 2.4rem 2rem;
+  background: linear-gradient(130deg, rgba(254,241,0,0.07), rgba(255,255,255,0.02));
+}
+.mec-deduction .rc-deduction {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 6vw, 5rem);
+  font-weight: 450;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--yellow);
+}
+.mec-deduction .rc-label {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.mec-fine { margin-top: 1.2rem; font-size: 0.82rem; color: var(--text-faint); line-height: 1.55; }
+
+/* Credibilidade list + chart (same as 2026) */
+.cred-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+.video-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  background: #000;
+}
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-cap { margin-top: 1rem; font-size: 0.82rem; color: var(--text-dim); }
+.cred-list { list-style: none; border-top: 1px solid var(--rule); }
+.cred-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.cred-list li::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--yellow);
+  flex: none;
+  align-self: center;
+}
+.cred-list strong { color: var(--white); font-weight: 700; }
+
+.hist { margin-top: clamp(3rem, 6vw, 5rem); }
+.hist-caption {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 3.4rem;
+}
+.hist-bars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.2rem, 3vw, 2.6rem);
+  align-items: end;
+  max-width: 720px;
+}
+.hist-bar { text-align: center; }
+.hist-col {
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.hist-fill {
+  position: relative;
+  width: 100%;
+  max-width: 96px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(180deg, rgba(254,241,0,0.9), rgba(254,241,0,0.45));
+}
+.hist-bar.hist-now .hist-fill { background: linear-gradient(180deg, rgba(98,204,60,0.95), rgba(98,204,60,0.45)); }
+.hist-val {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+.hist-year {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.hist-note { margin-top: 1.4rem; font-size: 0.84rem; color: var(--text-faint); max-width: 60ch; }
+
+/* Contact block inside CTA */
+.cta-contact {
+  margin-top: 1.4rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(31,5,47,0.78);
+}
+.cta-contact a { color: var(--purple-ink); font-weight: 700; }
+
+/* Cross-year band */
+.crossyear {
+  margin-top: var(--sp-section);
+  border-top: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--rule-soft);
+  padding: clamp(2rem, 4vw, 3rem) var(--pad-x);
+}
+.cta + .crossyear { margin-top: 0; }
+.crossyear-inner {
+  max-width: var(--w-content);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+.crossyear p {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 460;
+  color: var(--white);
+}
+.crossyear .btn { padding: 0.75rem 1.7rem; font-size: 0.9rem; }
+
+@media (max-width: 1024px) {
+  .cred-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 820px) {
+  .mecanismo-head { grid-template-columns: 1fr; }
+  .roadmap li { grid-template-columns: 1fr; gap: 0.2rem; padding: 0.9rem 0; }
+  .school-list { columns: 1; }
+  .hist-bars { gap: 0.8rem; }
+  .hist-col { height: 130px; }
+  .hist-val { font-size: 0.95rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo"><img src="../img/logo-white-nav.png" alt="Favela Brass"></a>
+  <button class="nav-burger" id="navBurger" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#plano">O plano 2027</a>
+    <a href="#porque">Por que agora</a>
+    <a href="#mecanismo">Como funciona</a>
+    <a href="#credibilidade">Credibilidade</a>
+    <div class="year-switch" role="group" aria-label="Ano do projeto">
+      <a href="../2026/">2026</a>
+      <a href="./" class="active" aria-current="page">2027</a>
+    </div>
+    <a href="#contato" class="nav-cta">Fale com a gente</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="hero-photo" style="background-image: url('../img/02-copa-palace-bezerra.jpg')" role="img" aria-label="Banda da Favela Brass se apresentando no Copacabana Palace"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <span class="status-badge anim a1">Proposta · protocolo no MinC até 30/11/2026</span>
+    <p class="hero-kicker anim a1">Lei Rouanet · Plano Anual 2027</p>
+    <h1 class="anim a2">Reserve seu Rouanet<br>de <em>2027</em></h1>
+    <p class="hero-lede anim a3">O plano anual 2027 da Favela Brass está em elaboração e será protocolado no Ministério da Cultura até 30 de novembro de 2026, com aprovação esperada para o início de 2027. Empresas que fecham agora o orçamento de incentivo do ano que vem podem reservar cota hoje e assinar o contrato na aprovação.</p>
+    <div class="hero-ctas anim a5">
+      <a href="https://wa.me/5521991094882" target="_blank" rel="noopener" class="btn btn-yellow">Fale com a gente</a>
+      <a href="#plano" class="btn btn-ghost">Ver o plano</a>
+    </div>
+  </div>
+  <div class="hero-credit anim a5">
+    <span class="photo-cap">Copacabana Palace · Rio de Janeiro</span>
+  </div>
+</header>
+
+<!-- ===================== NUMBERS ===================== -->
+<section class="numbers">
+  <p class="numbers-cap">O projeto que continua em 2027 · dados de julho de 2026</p>
+  <div class="numbers-grid">
+    <div class="num reveal"><span class="num-fig">272</span><span class="num-label">vagas no plano 2027</span></div>
+    <div class="num reveal"><span class="num-fig">7</span><span class="num-label">escolas municipais no plano</span></div>
+    <div class="num reveal"><span class="num-fig">198</span><span class="num-label">alunos ativos hoje</span></div>
+    <div class="num reveal"><span class="num-fig">800<i>+</i></span><span class="num-label">jovens atendidos desde 2014</span></div>
+  </div>
+</section>
+
+<!-- ===================== 01 SITUAÇÃO ===================== -->
+<section class="section" id="situacao">
+  <div class="section-head reveal">
+    <div class="section-no"><span>01</span><hr></div>
+    <div class="section-titles">
+      <h2>Onde a proposta está</h2>
+      <p>Transparência primeiro: o plano 2027 ainda não tem PRONAC nem valor aprovado. Este é o calendário real.</p>
+    </div>
+  </div>
+
+  <div class="status-box reveal">
+    <h3>Calendário do plano anual 2027</h3>
+    <ul class="roadmap">
+      <li class="rm-done"><span class="rm-when">Hoje</span><span class="rm-what">Proposta em elaboração, no mesmo formato dos planos anuais de 2023 a 2026.</span></li>
+      <li><span class="rm-when">Até 30/11/2026</span><span class="rm-what">Protocolo no SALIC, o sistema oficial do Ministério da Cultura.</span></li>
+      <li><span class="rm-when">Início de 2027</span><span class="rm-what">Aprovação esperada e publicação no Diário Oficial, com número de PRONAC e abertura da conta de captação.</span></li>
+      <li><span class="rm-when">Ao longo de 2027</span><span class="rm-what">Execução do plano e captação, com contratos assinados a partir da aprovação.</span></li>
+    </ul>
+    <p class="status-fine">A captação de 2027 só abre depois da aprovação do Ministério da Cultura. A reserva de cota não envolve nenhum pagamento agora: é um compromisso de intenção que vira contrato quando o projeto for aprovado. O orçamento proposto terá o mesmo porte do plano 2026 (R$ 2,36 milhões aprovados); o valor final será definido no protocolo.</p>
+  </div>
+</section>
+
+<!-- ===================== 02 O PLANO ===================== -->
+<section class="section" id="plano">
+  <div class="section-head reveal">
+    <div class="section-no"><span>02</span><hr></div>
+    <div class="section-titles">
+      <h2>O que o plano 2027 propõe</h2>
+      <p>A continuação direta do que já funciona em 2026, com uma escola nova na rede.</p>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <article class="card produto-card reveal">
+      <span class="produto-fig">144<small>vagas</small></span>
+      <h3>Oficinas em 6 escolas municipais</h3>
+      <p>Aulas semanais de música dentro do horário escolar, com 24 vagas por escola.</p>
+    </article>
+    <article class="card produto-card reveal">
+      <span class="produto-fig">48<small>vagas</small></span>
+      <h3>Contraturno na E.M. Pereira Passos</h3>
+      <p>Duas oficinas semanais de sopro e percussão no contraturno da escola parceira.</p>
+    </article>
+    <article class="card produto-card reveal">
+      <span class="produto-fig">80<small>vagas</small></span>
+      <h3>Curso avançado na Pereira da Silva</h3>
+      <p>Cinco oficinas semanais na comunidade onde o projeto nasceu, no caminho da profissionalização.</p>
+    </article>
+    <article class="card produto-card reveal">
+      <span class="produto-fig">39<small>apresentações</small></span>
+      <h3>Palco o ano inteiro</h3>
+      <p>30 apresentações públicas, 3 eventos com parceiros e 6 apresentações didáticas, além dos encerramentos semestrais em cada escola.</p>
+    </article>
+    <article class="card produto-card reveal">
+      <span class="produto-fig">16<small>vídeos</small></span>
+      <h3>Vídeos didáticos gratuitos</h3>
+      <p>Material de ensino publicado no site e no YouTube, aberto para qualquer pessoa.</p>
+    </article>
+    <article class="card produto-card reveal">
+      <span class="produto-fig">8<small>níveis</small></span>
+      <h3>Sistema pedagógico próprio</h3>
+      <p>Currículo estruturado em 8 níveis, com avaliação externa e instrumentos emprestados para casa.</p>
+    </article>
+  </div>
+
+  <div class="mt-3 reveal">
+    <p class="hist-caption">As 7 escolas municipais do plano 2027</p>
+    <ul class="school-list">
+      <li>E.M. Vital Brasil</li>
+      <li>E.M. Estados Unidos</li>
+      <li>E.M. Mem de Sá</li>
+      <li>E.M. Maria Leopoldina</li>
+      <li>E.M. Machado de Assis</li>
+      <li>E.M. Senador Corrêa<span class="school-new">nova em 2027</span></li>
+      <li>E.M. Pereira Passos (contraturno)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== PHOTO BREAK ===================== -->
+<figure class="break">
+  <img src="../img/11-percussion-class-pereira-passos-humanacamila.jpg" alt="Aula de percussão na Escola Municipal Pereira Passos" loading="lazy" decoding="async" width="1800" height="1012">
+  <figcaption class="photo-cap">Aula de percussão · E.M. Pereira Passos</figcaption>
+</figure>
+
+<!-- ===================== 03 POR QUE AGORA ===================== -->
+<section class="section" id="porque">
+  <div class="section-head reveal">
+    <div class="section-no"><span>03</span><hr></div>
+    <div class="section-titles">
+      <h2>Por que reservar agora</h2>
+      <p>O orçamento de incentivo fiscal de 2027 da sua empresa se decide nos próximos meses. É agora que o patrocínio entra no planejamento.</p>
+    </div>
+  </div>
+
+  <div class="pathway-grid">
+    <div class="pathway-card reveal">
+      <span class="pathway-num">a</span>
+      <h3>Entra no orçamento de 2027</h3>
+      <p>A maioria das empresas define em setembro e outubro como vai usar o incentivo fiscal do ano seguinte. Reservar cota agora garante que a Favela Brass esteja no plano antes de o orçamento fechar.</p>
+    </div>
+    <div class="pathway-card reveal">
+      <span class="pathway-num">b</span>
+      <h3>Sem risco: contrato na aprovação</h3>
+      <p>Nenhum pagamento acontece agora. O contrato é assinado e o aporte é feito somente depois da aprovação do Ministério da Cultura e da abertura da conta de captação oficial.</p>
+    </div>
+    <div class="pathway-card reveal">
+      <span class="pathway-num">c</span>
+      <h3>Um histórico que cresce</h3>
+      <p>A Favela Brass capta via Lei Rouanet desde 2023, com valores crescentes a cada ano e prestação de contas aprovada. Quem entra em 2027 apoia um projeto com máquina de execução comprovada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 MECANISMO ===================== -->
+<section class="section" id="mecanismo">
+  <div class="section-head reveal">
+    <div class="section-no"><span>04</span><hr></div>
+    <div class="section-titles">
+      <h2>Como funciona para a sua empresa</h2>
+      <p>Os planos anuais da Favela Brass de 2023 a 2026 foram todos enquadrados no Artigo 18 da Lei Rouanet, e o plano 2027 será apresentado no mesmo formato: dedução integral do valor aportado no Imposto de Renda devido.</p>
+    </div>
+  </div>
+
+  <div class="mecanismo-head reveal">
+    <div class="prose">
+      <p class="lead">Empresas tributadas pelo lucro real podem destinar até 4% do IR devido. Na prática, o patrocínio sai do imposto que a empresa já pagaria de qualquer forma.</p>
+      <p>Pessoas físicas também podem apoiar: até 6% do imposto devido na declaração completa, com a mesma dedução de 100%. O depósito vai para a conta de captação do projeto, aberta e monitorada pelo Ministério da Cultura, e toda a execução passa por prestação de contas ao governo federal.</p>
+    </div>
+    <div class="mec-deduction">
+      <span class="rc-deduction">100%</span>
+      <span class="rc-label">de dedução do IR devido</span>
+      <p class="mec-fine">Artigo 18 da Lei 8.313/91. Limite de 4% do imposto devido para pessoas jurídicas (lucro real) e 6% para pessoas físicas (declaração completa). Condicionado à aprovação do plano 2027 pelo MinC.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 05 CREDIBILIDADE ===================== -->
+<section class="section" id="credibilidade">
+  <div class="section-head reveal">
+    <div class="section-no"><span>05</span><hr></div>
+    <div class="section-titles">
+      <h2>Um projeto que o Brasil já conhece</h2>
+      <p>Doze anos de trabalho contínuo, resultados medidos por avaliação externa e reconhecimento da mídia nacional e internacional.</p>
+    </div>
+  </div>
+
+  <div class="cred-grid">
+    <div class="reveal">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/_ONXcOJ_-EM" title="GloboNews: matéria sobre a Favela Brass" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="video-cap">GloboNews, julho de 2026: matéria de 11 minutos de Aline Midlej sobre a Favela Brass.</p>
+    </div>
+    <ul class="cred-list reveal">
+      <li><span><strong>PRIO:</strong> patrocinadora âncora em 2026, com R$ 1 milhão aportado via Lei Rouanet.</span></li>
+      <li><span><strong>WASBE Rio 2026:</strong> concerto no Palácio Capanema em 23 de julho, na conferência mundial de bandas sinfônicas.</span></li>
+      <li><span><strong>Intercâmbio internacional:</strong> 73 músicos alemães visitaram o projeto no Rio em 2024.</span></li>
+      <li><span><strong>British Empire Medal:</strong> o fundador Tom Ashe foi condecorado pela coroa britânica em 2026 pelo trabalho na Favela Brass.</span></li>
+      <li><span><strong>4 ex-alunos</strong> trabalham hoje como professores no projeto.</span></li>
+      <li><span><strong>77% de aprovação com distinção</strong> em avaliações internacionais de música (2025).</span></li>
+    </ul>
+  </div>
+
+  <div class="hist reveal">
+    <p class="hist-caption">Captação via Lei Rouanet, ano a ano</p>
+    <div class="hist-bars">
+      <div class="hist-bar">
+        <div class="hist-col"><div style="height: 63%" class="hist-fill"><span class="hist-val" style="position:absolute; bottom:calc(100% + 0.55rem); left:0; right:0;">R$ 700 mil</span></div></div>
+        <span class="hist-year">2023</span>
+      </div>
+      <div class="hist-bar">
+        <div class="hist-col"><div style="height: 81%" class="hist-fill"><span class="hist-val" style="position:absolute; bottom:calc(100% + 0.55rem); left:0; right:0;">R$ 900 mil</span></div></div>
+        <span class="hist-year">2024</span>
+      </div>
+      <div class="hist-bar">
+        <div class="hist-col"><div style="height: 91%" class="hist-fill"><span class="hist-val" style="position:absolute; bottom:calc(100% + 0.55rem); left:0; right:0;">R$ 1.014 mil</span></div></div>
+        <span class="hist-year">2025</span>
+      </div>
+      <div class="hist-bar hist-now">
+        <div class="hist-col"><div style="height: 100%" class="hist-fill"><span class="hist-val" style="position:absolute; bottom:calc(100% + 0.55rem); left:0; right:0;">R$ 1.110 mil</span></div></div>
+        <span class="hist-year">2026 (até jul)</span>
+      </div>
+    </div>
+    <p class="hist-note">A captação cresce todos os anos desde 2023, e 2026 ainda tem seis meses de captação pela frente. O plano 2027 continua essa curva.</p>
+  </div>
+</section>
+
+<!-- ===================== CTA / CONTATO ===================== -->
+<section class="cta" id="contato">
+  <div class="cta-inner reveal">
+    <h2>Entre na conversa<br>de 2027.</h2>
+    <div class="cta-side">
+      <p>Uma conversa de 20 minutos agora garante que o projeto entre no planejamento fiscal da sua empresa para o ano que vem. Fale direto com o fundador, sem intermediários.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/5521991094882" target="_blank" rel="noopener" class="btn btn-purple">WhatsApp</a>
+        <a href="mailto:tom@favelabrass.org" class="btn btn-ink-ghost">tom@favelabrass.org</a>
+      </div>
+      <p class="cta-contact">Tom Ashe, Diretor Executivo · (21) 99109-4882</p>
+      <p class="cta-fine">Associação Musical Favela Brass · CNPJ 37.332.605/0001-90 · Rua Pau da Bandeira, 19B, Laranjeiras, Rio de Janeiro, CEP 22221-140</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CROSS-YEAR ===================== -->
+<aside class="crossyear">
+  <div class="crossyear-inner reveal">
+    <p>O projeto 2026 está aprovado, com captação aberta até dezembro.</p>
+    <a href="../2026/" class="btn btn-ghost">Ver o projeto 2026</a>
+  </div>
+</aside>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="../img/logo-white-nav.png" alt="Favela Brass">
+      <p>Programa de educação musical para jovens da favela e de escolas públicas do Rio de Janeiro, desde 2014.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/favela_brass/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@favelabrass" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://wa.me/5521991094882" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>A proposta</h3>
+      <a href="#situacao">Calendário</a>
+      <a href="#plano">O plano 2027</a>
+      <a href="#mecanismo">Como funciona</a>
+      <a href="../2026/">Projeto 2026</a>
+    </div>
+    <div class="footer-col">
+      <h3>Favela Brass</h3>
+      <a href="https://favelabrass.org" target="_blank" rel="noopener">favelabrass.org</a>
+      <a href="https://favelabrass.org/relatorio-2025/" target="_blank" rel="noopener">Relatório Anual 2025</a>
+      <a href="https://curriculo.favelabrass.org" target="_blank" rel="noopener">Currículo Online</a>
+    </div>
+    <div class="footer-col">
+      <h3>Contato</h3>
+      <a href="mailto:tom@favelabrass.org">tom@favelabrass.org</a>
+      <a href="https://wa.me/5521991094882" target="_blank" rel="noopener">(21) 99109-4882</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Associação Musical Favela Brass · CNPJ 37.332.605/0001-90</p>
+    <p>Plano anual 2027: proposta em elaboração, protocolo no Ministério da Cultura até 30/11/2026 · Dados de julho de 2026</p>
+  </div>
+</footer>
+
+<script>
+// Nav scroll state
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+// Mobile menu
+const burger = document.getElementById('navBurger');
+const links = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  links.classList.toggle('open');
+  burger.classList.toggle('open');
+  burger.setAttribute('aria-expanded', links.classList.contains('open'));
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  links.classList.remove('open'); burger.classList.remove('open');
+}));
+
+// Reveal on scroll
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+}), {threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
