@@ -34,15 +34,14 @@
      Valor de entrada:     R$ 250 (piso do tier Aprendiz)
      Precedente PF:         R$ 115 mil captados de PF em dez/2025 (uma mensagem da Margo Black)
 
-     >>> FALTA CONFIRMAR (conta de captação do PRONAC 254750) <<<
-     A doação incentivada TEM de cair na conta de captação vinculada ao
-     PRONAC (Banco do Brasil), NÃO na conta geral da associação
-     (3118-6 / 43386-1), senão não gera recibo de mecenato válido.
-     Preencher antes de publicar:
-       Conta de captação:  Banco do Brasil · Agência {{AG_CAPTACAO}} · C/C {{CC_CAPTACAO}}
-       Chave PIX (se houver): {{PIX_CAPTACAO}}
-     Enquanto não confirmado, a seção "Como doar" mostra um aviso e o CTA
-     é "Fale com a gente" (o depósito é combinado por WhatsApp).
+     Conta de captação do PRONAC 254750 (onde cai a doação incentivada;
+     confirmada pelo Tom em 09/07/2026):
+       Banco do Brasil · Agência 1569-5 · Conta corrente 39895-0
+       Titular: Associação Musical Favela Brass · CNPJ 37.332.605/0001-90
+       Sem chave PIX própria: o doador faz PIX via dados bancários
+       (agência + conta) ou transferência. É a conta vinculada ao projeto,
+       NÃO a conta geral da associação (3118-6 / 43386-1); só ela gera
+       recibo de mecenato válido.
 
      Doação direta (SEM benefício fiscal, qualquer pessoa incl. estrangeiros):
        Conta geral:  Banco do Brasil · Agência 3118-6 · C/C 43386-1
@@ -176,6 +175,13 @@
 .conta-pending strong { color: var(--yellow); }
 .conta-note { margin-top: 1.4rem; font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; max-width: 70ch; }
 .conta-note strong { color: var(--white); }
+.conta-label { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.5rem; }
+.conta-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem 2.4rem; margin-bottom: 1.7rem; }
+.conta-grid dt { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.3rem; }
+.conta-grid dd { font-family: var(--font-display); font-optical-sizing: auto; font-size: 1.3rem; font-weight: 460; color: var(--white); }
+.conta-copy { padding: 0.7rem 1.7rem; font-size: 0.9rem; }
+.conta-tip { margin-top: 1.3rem; font-size: 0.86rem; color: var(--text-dim); line-height: 1.6; max-width: 72ch; }
+@media (max-width: 560px) { .conta-grid { grid-template-columns: 1fr; } }
 
 /* Tier ladder */
 .tiers { display: grid; gap: 0.9rem; }
@@ -424,11 +430,17 @@
   <!-- Conta de captação -->
   <div class="conta-box reveal">
     <h3>Para onde enviar</h3>
-    <div class="conta-pending">
-      <span>⚠️</span>
-      <span>Os dados da <strong>conta de captação do PRONAC 254750</strong> (Banco do Brasil) entram aqui antes da publicação. O depósito incentivado precisa cair nessa conta específica do projeto, não na conta geral da associação, para gerar um recibo de mecenato válido. Enquanto isso, <a href="https://wa.me/5521991094882" target="_blank" rel="noopener" style="color: var(--yellow);">fale com a gente no WhatsApp</a> e combinamos o depósito.</span>
-    </div>
-    <p class="conta-note"><strong>Por que um PIX identificado?</strong> Feito a partir da sua própria conta, o depósito já chega com o seu nome, então sabemos exatamente quem doou e conseguimos emitir o seu recibo. Depois de doar, mande uma mensagem com o seu nome completo e CPF para agilizar a emissão. Foi assim que a Favela Brass captou R$ 115 mil de pessoas físicas em dezembro de 2025.</p>
+    <span class="conta-label">Conta de captação do projeto · PRONAC 254750</span>
+    <dl class="conta-grid">
+      <div><dt>Banco</dt><dd>Banco do Brasil</dd></div>
+      <div><dt>Agência</dt><dd>1569-5</dd></div>
+      <div><dt>Conta corrente</dt><dd>39895-0</dd></div>
+      <div><dt>CNPJ</dt><dd>37.332.605/0001-90</dd></div>
+      <div style="grid-column: 1 / -1;"><dt>Titular</dt><dd>Associação Musical Favela Brass</dd></div>
+    </dl>
+    <button type="button" class="btn btn-yellow conta-copy" onclick="copyConta(this)">Copiar dados da conta</button>
+    <p class="conta-tip">Esta conta não tem chave PIX própria: faça um PIX pelos dados bancários (agência e conta) ou uma transferência. É a conta oficial do projeto, vinculada ao PRONAC 254750 e monitorada pelo Ministério da Cultura, e é ela que gera o seu recibo de mecenato.</p>
+    <p class="conta-note"><strong>Por que a partir da sua própria conta?</strong> Feito do seu CPF, o depósito já chega identificado com o seu nome, então sabemos exatamente quem doou e conseguimos emitir o seu recibo. Depois de doar, mande uma mensagem com o seu nome completo e CPF para agilizar a emissão. Foi assim que a Favela Brass captou R$ 115 mil de pessoas físicas em dezembro de 2025.</p>
   </div>
 </section>
 
@@ -602,6 +614,16 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
 }), {threshold: 0.12});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Copy captação account details
+function copyConta(btn) {
+  const txt = 'Banco do Brasil · Agência 1569-5 · Conta corrente 39895-0 · Associação Musical Favela Brass · CNPJ 37.332.605/0001-90';
+  navigator.clipboard.writeText(txt).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copiado!';
+    setTimeout(() => { btn.textContent = original; }, 1800);
+  });
+}
 </script>
 </body>
 </html>
