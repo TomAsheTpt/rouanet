@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destine seu Imposto de Renda à Favela Brass · Lei Rouanet · Pessoa Física</title>
+<meta name="description" content="Até 6% do seu Imposto de Renda pode virar educação musical para uma criança da favela do Rio, com 100% de dedução via Lei Rouanet. Veja o passo a passo para pessoas físicas. PRONAC 254750, prazo 31/12/2026.">
+<meta property="og:title" content="Transforme seu Imposto de Renda em música · Favela Brass">
+<meta property="og:description" content="Pessoa física pode destinar até 6% do IR devido à Favela Brass via Lei Rouanet, com 100% de dedução. Passo a passo, a partir de R$ 250. Prazo 31/12/2026.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rouanet.favelabrass.org/img/08-young-percussionists-bezerra.jpg">
+<meta property="og:url" content="https://rouanet.favelabrass.org/pessoas-fisicas/">
+<meta property="og:site_name" content="Favela Brass">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#1F052F">
+<link rel="canonical" href="https://rouanet.favelabrass.org/pessoas-fisicas/">
+<link rel="preload" as="image" href="../img/08-young-percussionists-bezerra.jpg">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../img/favicon-48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..1000&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="../shared/fb-rouanet.css">
+
+<!-- ================================================================
+     PF-DATA START · fontes verificadas em 09/07/2026
+     Página EVERGREEN (não versionada por ano). Ao virar o ano, atualizar
+     só o PRONAC e o prazo abaixo; as mecânicas de PF Rouanet não mudam.
+
+     PRONAC ativo:         254750 (Artigo 18, mecenato)
+     Prazo do depósito:    31/12/2026
+     Dedução PF:           100% do valor, até 6% do IR devido, só na declaração completa
+     Valor de entrada:     R$ 250 (piso do tier Aprendiz)
+     Precedente PF:         R$ 115 mil captados de PF em dez/2025 (uma mensagem da Margo Black)
+
+     >>> FALTA CONFIRMAR (conta de captação do PRONAC 254750) <<<
+     A doação incentivada TEM de cair na conta de captação vinculada ao
+     PRONAC (Banco do Brasil), NÃO na conta geral da associação
+     (3118-6 / 43386-1), senão não gera recibo de mecenato válido.
+     Preencher antes de publicar:
+       Conta de captação:  Banco do Brasil · Agência {{AG_CAPTACAO}} · C/C {{CC_CAPTACAO}}
+       Chave PIX (se houver): {{PIX_CAPTACAO}}
+     Enquanto não confirmado, a seção "Como doar" mostra um aviso e o CTA
+     é "Fale com a gente" (o depósito é combinado por WhatsApp).
+
+     Doação direta (SEM benefício fiscal, qualquer pessoa incl. estrangeiros):
+       Conta geral:  Banco do Brasil · Agência 3118-6 · C/C 43386-1
+       Chave PIX:    CNPJ 37.332.605/0001-90
+       PayPal:       hosted_button_id 5AYPUD7U7UGK2 (internacional)
+
+     Tiers (OSESP-modelled, captacao-strategy.md):
+       Aprendiz R$ 250–999 · Sopro R$ 1.000–2.499 · Cortejo R$ 2.500–4.999 ·
+       Banda R$ 5.000–9.999 · Maestro R$ 10.000–24.999 · Patrono R$ 25.000+
+     Contato: Tom Ashe · (21) 99109-4882 · tom@favelabrass.org
+     Carimbo: julho de 2026
+     ================================================================
+     PF-DATA END -->
+
+<style>
+/* ===== Page-specific: pessoas físicas ===== */
+
+/* Two-path cards */
+.paths {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: stretch;
+}
+.path {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: clamp(1.8rem, 3vw, 2.6rem);
+}
+.path-incent {
+  border: 1px solid rgba(254, 241, 0, 0.4);
+  background: linear-gradient(130deg, rgba(254, 241, 0, 0.08) 0%, rgba(255, 255, 255, 0.02) 55%);
+}
+.path-direta {
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.03);
+}
+.path-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: 3px;
+  margin-bottom: 1.2rem;
+  align-self: flex-start;
+}
+.path-incent .path-tag { background: var(--yellow); color: var(--purple-ink); }
+.path-direta .path-tag { background: rgba(255,255,255,0.1); color: var(--text-dim); }
+.path h3 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 480;
+  color: var(--white);
+  margin-bottom: 0.8rem;
+}
+.path > p { color: var(--text-dim); margin-bottom: 1.3rem; }
+.path ul { list-style: none; margin-bottom: 1.6rem; }
+.path li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.5rem 0;
+  font-size: 0.96rem;
+  color: var(--text);
+}
+.path li::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--yellow);
+  flex: none;
+  align-self: center;
+}
+.path-direta li::before { background: var(--text-faint); }
+.path .btn { margin-top: auto; align-self: flex-start; }
+
+/* Passo a passo */
+.passos { counter-reset: passo; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.2rem, 2.5vw, 2rem); }
+.passo {
+  position: relative;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 2rem 1.6rem;
+  background: rgba(255,255,255,0.03);
+}
+.passo::before {
+  counter-increment: passo;
+  content: counter(passo);
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--yellow);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.passo h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.passo p { font-size: 0.92rem; color: var(--text-dim); }
+
+/* Deposit / conta de captação box */
+.conta-box {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border: 1px solid rgba(254, 241, 0, 0.4);
+  border-radius: 10px;
+  background: linear-gradient(130deg, rgba(254, 241, 0, 0.07) 0%, rgba(255, 255, 255, 0.02) 55%);
+  padding: clamp(2rem, 4vw, 3rem);
+}
+.conta-box h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 480;
+  color: var(--white);
+  margin-bottom: 1.4rem;
+}
+.conta-pending {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  border: 1px dashed rgba(254, 241, 0, 0.6);
+  border-radius: 8px;
+  padding: 1.3rem 1.5rem;
+  background: rgba(254, 241, 0, 0.06);
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.conta-pending strong { color: var(--yellow); }
+.conta-note { margin-top: 1.4rem; font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; max-width: 70ch; }
+.conta-note strong { color: var(--white); }
+
+/* Tier ladder */
+.tiers { display: grid; gap: 0.9rem; }
+.tier {
+  display: grid;
+  grid-template-columns: 180px 180px 1fr;
+  gap: 1.4rem;
+  align-items: baseline;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.4rem 1.7rem;
+  background: rgba(255,255,255,0.03);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.tier:hover { border-color: rgba(254, 241, 0, 0.4); transform: translateX(3px); }
+.tier-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 480;
+  color: var(--yellow);
+}
+.tier-range {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--white);
+}
+.tier-benefit { font-size: 0.95rem; color: var(--text-dim); }
+.tier-top { border-color: rgba(254, 241, 0, 0.45); background: linear-gradient(130deg, rgba(254,241,0,0.06), rgba(255,255,255,0.02)); }
+.tiers-note { margin-top: 1.6rem; font-size: 0.88rem; color: var(--text-faint); max-width: 66ch; line-height: 1.6; }
+
+/* Example calc callout */
+.calc {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1.4rem, 3vw, 2.6rem);
+  align-items: center;
+  border-left: 2px solid var(--yellow);
+  padding: 0.4rem 0 0.4rem clamp(1.4rem, 3vw, 2.2rem);
+  margin-top: 2.2rem;
+}
+.calc-fig {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 460;
+  color: var(--yellow);
+  line-height: 1.05;
+  white-space: nowrap;
+}
+.calc p { color: var(--text-dim); max-width: 56ch; }
+.calc p strong { color: var(--white); }
+
+/* FAQ */
+.faq { display: grid; gap: 0; max-width: 820px; border-top: 1px solid var(--rule); }
+.faq details {
+  border-bottom: 1px solid var(--rule);
+  padding: 1.3rem 0;
+}
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--yellow);
+  line-height: 1;
+  transition: transform 0.25s var(--ease);
+}
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq p { margin-top: 0.9rem; color: var(--text-dim); font-size: 0.98rem; max-width: 72ch; }
+.faq a { color: var(--yellow); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 900px) {
+  .paths { grid-template-columns: 1fr; }
+  .passos { grid-template-columns: 1fr 1fr; }
+  .tier { grid-template-columns: 1fr; gap: 0.4rem; }
+  .tier-range { color: var(--text-dim); }
+}
+@media (max-width: 560px) {
+  .passos { grid-template-columns: 1fr; }
+  .calc { grid-template-columns: 1fr; gap: 0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav" id="nav">
+  <a href="../2026/" class="nav-logo"><img src="../img/logo-white-nav.png" alt="Favela Brass"></a>
+  <button class="nav-burger" id="navBurger" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#como">Como funciona</a>
+    <a href="#doar">Como doar</a>
+    <a href="#tiers">Reconhecimento</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a href="../2026/">Empresa? Veja o projeto</a>
+    <a href="https://wa.me/5521991094882" target="_blank" rel="noopener" class="nav-cta">Fale com a gente</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="hero-photo" style="background-image: url('../img/08-young-percussionists-bezerra.jpg'); background-position: center 25%;" role="img" aria-label="Jovens percussionistas da Favela Brass"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker anim a1">Lei Rouanet · Pessoa Física · PRONAC 254750</p>
+    <h1 class="anim a2">Transforme seu<br>imposto em <em>música</em></h1>
+    <p class="hero-lede anim a3">Você já paga Imposto de Renda. Pela Lei Rouanet, uma parte dele pode ir para a educação musical de uma criança da favela do Rio de Janeiro, em vez de voltar aos cofres do governo. A dedução é de 100% do valor, e você decide para onde vai.</p>
+    <div class="hero-ctas anim a5">
+      <a href="#doar" class="btn btn-yellow">Quero doar</a>
+      <a href="#como" class="btn btn-ghost">Entenda como funciona</a>
+    </div>
+  </div>
+  <div class="hero-credit anim a5">
+    <span class="photo-cap">Jovens percussionistas · Favela Brass</span>
+  </div>
+</header>
+
+<!-- ===================== NUMBERS ===================== -->
+<section class="numbers">
+  <p class="numbers-cap">A conta que interessa para você</p>
+  <div class="numbers-grid">
+    <div class="num reveal"><span class="num-fig">6<i>%</i></span><span class="num-label">do seu IR devido pode ser destinado</span></div>
+    <div class="num reveal"><span class="num-fig">100<i>%</i></span><span class="num-label">de dedução do valor doado</span></div>
+    <div class="num reveal"><span class="num-fig">R$ 250</span><span class="num-label">para começar a apoiar</span></div>
+    <div class="num reveal"><span class="num-fig">31/12</span><span class="num-label">prazo do depósito em 2026</span></div>
+  </div>
+</section>
+
+<!-- ===================== KILLER MESSAGE ===================== -->
+<section class="section">
+  <div class="quote reveal" style="max-width: 60ch; margin: 0 auto;">
+    <p>Até 6% do seu Imposto de Renda pode virar um trompete na mão de uma criança da favela, em vez de virar o asfalto de uma cidade que você nunca vai pisar.</p>
+    <cite><strong>A escolha é sua.</strong> A Lei Rouanet existe exatamente para isso.</cite>
+  </div>
+</section>
+
+<!-- ===================== 01 COMO FUNCIONA ===================== -->
+<section class="section" id="como">
+  <div class="section-head reveal">
+    <div class="section-no"><span>01</span><hr></div>
+    <div class="section-titles">
+      <h2>Como funciona a dedução</h2>
+      <p>A Lei Federal de Incentivo à Cultura permite que você, pessoa física, direcione parte do imposto que já pagaria para um projeto cultural aprovado. A Favela Brass é um deles: PRONAC 254750, Artigo 18.</p>
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <p class="lead">Na prática: você doa um valor para o projeto, recebe um recibo de mecenato, e abate 100% desse valor no Imposto de Renda do ano seguinte, respeitando o limite de 6% do imposto devido.</p>
+    <p>O benefício existe apenas para quem declara no modelo completo (por deduções legais), não no simplificado. Se você declara no simplificado, ou mora fora do Brasil, ainda pode apoiar pela doação direta, sem o benefício fiscal, logo abaixo.</p>
+  </div>
+
+  <div class="calc reveal">
+    <span class="calc-fig">R$ 10.000<br>vira R$ 600</span>
+    <p>Se o seu Imposto de Renda devido no ano é de <strong>R$ 10.000</strong>, você pode destinar até <strong>R$ 600</strong> à Favela Brass e deduzir esse valor integralmente. O custo real para você é zero: é imposto que sairia do seu bolso de qualquer forma. O exemplo é ilustrativo; o seu limite é 6% do seu IR devido.</p>
+  </div>
+</section>
+
+<!-- ===================== PHOTO BREAK ===================== -->
+<figure class="break">
+  <img src="../img/07-young-drummer-cortejo-bezerra.jpg" alt="Jovem percussionista da Favela Brass em cortejo" loading="lazy" decoding="async" width="1200" height="1600" style="object-position: center 30%">
+  <figcaption class="photo-cap">Cortejo · Favela Brass</figcaption>
+</figure>
+
+<!-- ===================== 02 COMO DOAR ===================== -->
+<section class="section" id="doar">
+  <div class="section-head reveal">
+    <div class="section-no"><span>02</span><hr></div>
+    <div class="section-titles">
+      <h2>Dois caminhos para apoiar</h2>
+      <p>Um com benefício fiscal, outro aberto a qualquer pessoa. Escolha o que faz sentido para você.</p>
+    </div>
+  </div>
+
+  <div class="paths reveal">
+    <article class="path path-incent">
+      <span class="path-tag">Com incentivo fiscal</span>
+      <h3>Doação incentivada (Lei Rouanet)</h3>
+      <p>Para quem declara Imposto de Renda no modelo completo e quer deduzir 100% do valor.</p>
+      <ul>
+        <li>100% de dedução, até 6% do IR devido</li>
+        <li>A partir de R$ 250</li>
+        <li>Recibo de mecenato para a sua declaração</li>
+        <li>Depósito até 31 de dezembro de 2026</li>
+      </ul>
+      <a href="#passos" class="btn btn-yellow">Ver o passo a passo</a>
+    </article>
+
+    <article class="path path-direta">
+      <span class="path-tag">Sem incentivo fiscal</span>
+      <h3>Doação direta</h3>
+      <p>Para quem declara no simplificado, mora fora do Brasil, ou simplesmente quer doar qualquer valor, sem burocracia.</p>
+      <ul>
+        <li>Qualquer valor, qualquer pessoa</li>
+        <li>Aberta a estrangeiros e familiares no exterior</li>
+        <li>PIX (chave CNPJ) ou PayPal internacional</li>
+        <li>Sem benefício fiscal, sem recibo de mecenato</li>
+      </ul>
+      <a href="https://favelabrass.org/colaborar.html" target="_blank" rel="noopener" class="btn btn-ghost">Doar direto</a>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== 03 PASSO A PASSO ===================== -->
+<section class="section" id="passos">
+  <div class="section-head reveal">
+    <div class="section-no"><span>03</span><hr></div>
+    <div class="section-titles">
+      <h2>Passo a passo da doação incentivada</h2>
+      <p>Cinco passos, feitos uma vez por ano. O depósito identificado é o que garante o seu recibo.</p>
+    </div>
+  </div>
+
+  <div class="passos reveal">
+    <div class="passo">
+      <h3>Confirme o modelo completo</h3>
+      <p>O benefício vale só na declaração completa (por deduções legais). Na dúvida, fale com o seu contador.</p>
+    </div>
+    <div class="passo">
+      <h3>Decida o valor</h3>
+      <p>A partir de R$ 250, até 6% do seu IR devido. Se não sabe o seu teto, a gente ajuda a estimar.</p>
+    </div>
+    <div class="passo">
+      <h3>Faça o PIX identificado</h3>
+      <p>Da sua própria conta (pessoa física) para a conta de captação do projeto, até 31 de dezembro.</p>
+    </div>
+    <div class="passo">
+      <h3>Receba o recibo</h3>
+      <p>Nos avise com nome completo e CPF, e emitimos o seu recibo de mecenato.</p>
+    </div>
+  </div>
+
+  <!-- Conta de captação -->
+  <div class="conta-box reveal">
+    <h3>Para onde enviar</h3>
+    <div class="conta-pending">
+      <span>⚠️</span>
+      <span>Os dados da <strong>conta de captação do PRONAC 254750</strong> (Banco do Brasil) entram aqui antes da publicação. O depósito incentivado precisa cair nessa conta específica do projeto, não na conta geral da associação, para gerar um recibo de mecenato válido. Enquanto isso, <a href="https://wa.me/5521991094882" target="_blank" rel="noopener" style="color: var(--yellow);">fale com a gente no WhatsApp</a> e combinamos o depósito.</span>
+    </div>
+    <p class="conta-note"><strong>Por que um PIX identificado?</strong> Feito a partir da sua própria conta, o depósito já chega com o seu nome, então sabemos exatamente quem doou e conseguimos emitir o seu recibo. Depois de doar, mande uma mensagem com o seu nome completo e CPF para agilizar a emissão. Foi assim que a Favela Brass captou R$ 115 mil de pessoas físicas em dezembro de 2025.</p>
+  </div>
+</section>
+
+<!-- ===================== PHOTO BREAK ===================== -->
+<figure class="break">
+  <img src="../img/09-the-hug-brabo.jpg" alt="Momento de emoção entre alunos da Favela Brass" loading="lazy" decoding="async" width="1600" height="1066">
+  <figcaption class="photo-cap">Favela Brass · Rio de Janeiro</figcaption>
+</figure>
+
+<!-- ===================== 04 RECONHECIMENTO / TIERS ===================== -->
+<section class="section" id="tiers">
+  <div class="section-head reveal">
+    <div class="section-no"><span>04</span><hr></div>
+    <div class="section-titles">
+      <h2>Faça parte por dentro</h2>
+      <p>Doar não é só abater imposto. Cada nível de apoio aproxima você do dia a dia do projeto, dos ensaios aos palcos.</p>
+    </div>
+  </div>
+
+  <div class="tiers reveal">
+    <div class="tier">
+      <span class="tier-name">Aprendiz</span>
+      <span class="tier-range">R$ 250 a R$ 999</span>
+      <span class="tier-benefit">Nome no site, relatório de impacto anual e convite para um evento aberto por ano.</span>
+    </div>
+    <div class="tier">
+      <span class="tier-name">Sopro</span>
+      <span class="tier-range">R$ 1.000 a R$ 2.499</span>
+      <span class="tier-benefit">Tudo do nível anterior, mais convite para um evento de cultivo (coquetel com Tom e a Banda Preta).</span>
+    </div>
+    <div class="tier">
+      <span class="tier-name">Cortejo</span>
+      <span class="tier-range">R$ 2.500 a R$ 4.999</span>
+      <span class="tier-benefit">Mais convites para três a quatro eventos por ano e o seu nome no relatório anual.</span>
+    </div>
+    <div class="tier">
+      <span class="tier-name">Banda</span>
+      <span class="tier-range">R$ 5.000 a R$ 9.999</span>
+      <span class="tier-benefit">Mais um jantar exclusivo com Tom e Wesley e lugares premium na festa de aniversário da Favela Brass.</span>
+    </div>
+    <div class="tier">
+      <span class="tier-name">Maestro</span>
+      <span class="tier-range">R$ 10.000 a R$ 24.999</span>
+      <span class="tier-benefit">Mais uma apresentação privada da Banda Preta no local que você escolher, em data combinada.</span>
+    </div>
+    <div class="tier tier-top">
+      <span class="tier-name">Patrono</span>
+      <span class="tier-range">R$ 25.000 ou mais</span>
+      <span class="tier-benefit">Mais uma bolsa nomeada para um aluno durante um ano e convite para a gala de fim de ano.</span>
+    </div>
+  </div>
+  <p class="tiers-note">Os benefícios são baseados em experiências, não em contrapartidas de marca. O nível é definido pelo total doado no ano. Fale com a gente para desenhar o seu apoio.</p>
+</section>
+
+<!-- ===================== 05 DÚVIDAS ===================== -->
+<section class="section" id="duvidas">
+  <div class="section-head reveal">
+    <div class="section-no"><span>05</span><hr></div>
+    <div class="section-titles">
+      <h2>Dúvidas frequentes</h2>
+    </div>
+  </div>
+
+  <div class="faq reveal">
+    <details>
+      <summary>Preciso declarar no modelo completo?</summary>
+      <p>Sim. A dedução da Lei Rouanet só existe na declaração completa (por deduções legais). No modelo simplificado o benefício não se aplica, mas você ainda pode apoiar pela doação direta.</p>
+    </details>
+    <details>
+      <summary>Quanto posso destinar?</summary>
+      <p>Até 6% do seu Imposto de Renda devido no ano. Não é 6% da sua renda, é 6% do imposto. Na Favela Brass, a doação incentivada começa em R$ 250. Se não souber o seu teto, a gente ajuda a estimar com base na sua situação.</p>
+    </details>
+    <details>
+      <summary>O custo é realmente zero?</summary>
+      <p>Dentro do limite de 6%, sim. O valor doado é abatido integralmente do imposto que você pagaria de qualquer forma, então em vez de ir para o governo, ele vai para a educação musical de uma criança. Você só precisa doar dentro do ano-calendário e guardar o recibo para a declaração seguinte.</p>
+    </details>
+    <details>
+      <summary>Como recebo o recibo de mecenato?</summary>
+      <p>Depois de fazer o depósito identificado na conta de captação do projeto, é só nos avisar com o seu nome completo e CPF. A Favela Brass emite o recibo de mecenato, que é o documento que você usa na declaração.</p>
+    </details>
+    <details>
+      <summary>Até quando posso doar?</summary>
+      <p>O depósito para valer no Imposto de Renda deste ano precisa ser feito até 31 de dezembro de 2026, dentro do ano-calendário. Depois dessa data, a doação conta para o exercício seguinte.</p>
+    </details>
+    <details>
+      <summary>Moro fora do Brasil ou declaro no simplificado. Posso ajudar?</summary>
+      <p>Pode. Nesses casos a via é a doação direta, sem benefício fiscal, aberta a qualquer valor e a qualquer pessoa, inclusive do exterior por PayPal. Veja as opções na <a href="https://favelabrass.org/colaborar.html" target="_blank" rel="noopener">página de doação da Favela Brass</a>.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ===================== CTA / CONTATO ===================== -->
+<section class="cta" id="contato">
+  <div class="cta-inner reveal">
+    <h2>Comece a sua<br>doação hoje.</h2>
+    <div class="cta-side">
+      <p>Uma mensagem é o suficiente para começar. A gente explica o passo a passo, ajuda a estimar o seu limite e emite o recibo. Fale direto com o fundador.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/5521991094882" target="_blank" rel="noopener" class="btn btn-purple">WhatsApp</a>
+        <a href="mailto:tom@favelabrass.org" class="btn btn-ink-ghost">tom@favelabrass.org</a>
+      </div>
+      <p class="cta-fine">Projeto aprovado pela Lei Federal de Incentivo à Cultura (Lei Rouanet) · PRONAC 254750 · Associação Musical Favela Brass · CNPJ 37.332.605/0001-90</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CROSS-LINK ===================== -->
+<aside class="crossyear" style="margin-top: var(--sp-section); border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); padding: clamp(2rem, 4vw, 3rem) var(--pad-x);">
+  <div class="crossyear-inner reveal" style="max-width: var(--w-content); margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem;">
+    <p style="font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 460; color: var(--white);">Representa uma empresa? O patrocínio via Lei Rouanet é outro caminho.</p>
+    <a href="../2026/" class="btn btn-ghost" style="padding: 0.75rem 1.7rem; font-size: 0.9rem;">Ver o projeto para empresas</a>
+  </div>
+</aside>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="../img/logo-white-nav.png" alt="Favela Brass">
+      <p>Programa de educação musical para jovens da favela e de escolas públicas do Rio de Janeiro, desde 2014.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/favela_brass/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@favelabrass" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://wa.me/5521991094882" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Doar</h3>
+      <a href="#como">Como funciona</a>
+      <a href="#passos">Passo a passo</a>
+      <a href="#tiers">Reconhecimento</a>
+      <a href="#duvidas">Dúvidas</a>
+    </div>
+    <div class="footer-col">
+      <h3>Favela Brass</h3>
+      <a href="https://favelabrass.org" target="_blank" rel="noopener">favelabrass.org</a>
+      <a href="../2026/">Projeto para empresas</a>
+      <a href="https://favelabrass.org/relatorio-2025/" target="_blank" rel="noopener">Relatório Anual 2025</a>
+    </div>
+    <div class="footer-col">
+      <h3>Contato</h3>
+      <a href="mailto:tom@favelabrass.org">tom@favelabrass.org</a>
+      <a href="https://wa.me/5521991094882" target="_blank" rel="noopener">(21) 99109-4882</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Associação Musical Favela Brass · CNPJ 37.332.605/0001-90</p>
+    <p>Projeto aprovado pela Lei Federal de Incentivo à Cultura (Lei Rouanet) · PRONAC 254750 · Dados de julho de 2026</p>
+  </div>
+</footer>
+
+<script>
+// Nav scroll state
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+// Mobile menu
+const burger = document.getElementById('navBurger');
+const links = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  links.classList.toggle('open');
+  burger.classList.toggle('open');
+  burger.setAttribute('aria-expanded', links.classList.contains('open'));
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  links.classList.remove('open'); burger.classList.remove('open');
+}));
+
+// Reveal on scroll
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+}), {threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
