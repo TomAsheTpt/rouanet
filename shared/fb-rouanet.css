@@ -1424,3 +1424,59 @@ figure .photo-cap--right { left: auto; right: 1.2rem; }
   .anim, .reveal { animation: none; transition: none; opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ==========================================================================
+   Print (browser print-to-PDF is the sanctioned fallback when a funder
+   form insists on a PDF upload — make it produce something legible)
+   ========================================================================== */
+
+@media print {
+  :root {
+    --text: #1F052F;
+    --text-dim: rgba(31, 5, 47, 0.78);
+    --text-faint: rgba(31, 5, 47, 0.6);
+    --rule: rgba(31, 5, 47, 0.25);
+    --rule-soft: rgba(31, 5, 47, 0.15);
+    --yellow: #8a6d00;
+    --green: #2e7d14;
+    --white: #1F052F;
+  }
+  body {
+    background: #fff !important;
+    color: #1F052F;
+    font-size: 10.5pt;
+  }
+  .grain, .nav, .video-embed, .nav-burger, .hero-ctas, .crossyear { display: none !important; }
+  .anim, .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .hero, .page-hero { min-height: 0 !important; padding-top: 2rem; }
+  .hero-photo, .hero-scrim, .page-hero-photo, .page-hero-scrim { display: none !important; }
+  .hero h1, .page-hero h1, .hero-lede, .page-hero-lede, .hero-kicker { color: #1F052F !important; text-shadow: none !important; }
+  .hero h1 em, .page-hero h1 em { color: #8a6d00 !important; }
+  .hero-chip { color: #1F052F; border-color: rgba(31,5,47,0.4); background: none; backdrop-filter: none; }
+  .hero-credit { display: none !important; }
+  .cta { background: #fff; border-top: 2px solid #1F052F; }
+  .cta, .cta h2, .cta-side p, .cta-fine, .cta-contact { color: #1F052F !important; }
+  .btn { border: 1px solid #1F052F !important; background: none !important; color: #1F052F !important; box-shadow: none !important; }
+  .card, .passo, .path, .capta-wrap, .conta-box, .anchor-card, .pathway-card, .status-box, .mec-deduction {
+    background: none !important;
+    border-color: rgba(31,5,47,0.3) !important;
+    break-inside: avoid;
+  }
+  .break { height: auto; max-height: 320px; }
+  .break img { max-height: 320px; }
+  .section { padding-top: 2.5rem; }
+  .capta-bar { background: rgba(31,5,47,0.12) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* NB: .capta-fill's print width is set in the year page's own <style>
+     (it's a year-specific figure, lives next to YEAR-DATA) */
+  .capta-fill { background: #8a6d00 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hist-fill { background: #8a6d00 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .footer { background: none; border-top: 1px solid rgba(31,5,47,0.3); }
+  .faq details { break-inside: avoid; }
+  .faq details > * { display: block; }
+  a { text-decoration: none; color: inherit; }
+}

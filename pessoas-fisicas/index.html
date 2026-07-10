@@ -8,7 +8,9 @@
 <meta property="og:title" content="Transforme seu Imposto de Renda em música · Favela Brass">
 <meta property="og:description" content="Pessoa física pode destinar até 6% do IR devido à Favela Brass via Lei Rouanet, com 100% de dedução. Passo a passo, a partir de R$ 250. Prazo 31/12/2026.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://rouanet.favelabrass.org/img/08-young-percussionists-bezerra.jpg">
+<meta property="og:image" content="https://rouanet.favelabrass.org/img/og-pf.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://rouanet.favelabrass.org/pessoas-fisicas/">
 <meta property="og:site_name" content="Favela Brass">
 <meta property="og:locale" content="pt_BR">
@@ -22,6 +24,9 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..1000&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="../shared/fb-rouanet.css">
+<!-- Google tag (gtag.js) · mesma propriedade GA4 do favelabrass.org -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CN4VGSPB3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CN4VGSPB3Z');</script>
 
 <!-- ================================================================
      PF-DATA START · fontes verificadas em 09/07/2026
@@ -31,8 +36,13 @@
      PRONAC ativo:         254750 (Artigo 18, mecenato)
      Prazo do depósito:    31/12/2026
      Dedução PF:           100% do valor, até 6% do IR devido, só na declaração completa
-     Valor de entrada:     R$ 250 (piso do tier Aprendiz)
+     Valor de entrada:     R$ 250 (piso da doação incentivada)
      Precedente PF:         R$ 115 mil captados de PF em dez/2025 (uma mensagem da Margo Black)
+
+     POLÍTICA (Tom, 10/07/2026): NÃO publicar contrapartidas/tiers para PF.
+     Doação é doação; o cultivo de doadores (convites, eventos, agradecimentos)
+     acontece voluntariamente depois que a pessoa entra, nunca como promessa
+     pública na página. Não reintroduzir a escada de níveis aqui.
 
      Conta de captação do PRONAC 254750 (onde cai a doação incentivada;
      confirmada pelo Tom em 09/07/2026):
@@ -48,9 +58,6 @@
        Chave PIX:    CNPJ 37.332.605/0001-90
        PayPal:       hosted_button_id 5AYPUD7U7UGK2 (internacional)
 
-     Tiers (OSESP-modelled, captacao-strategy.md):
-       Aprendiz R$ 250–999 · Sopro R$ 1.000–2.499 · Cortejo R$ 2.500–4.999 ·
-       Banda R$ 5.000–9.999 · Maestro R$ 10.000–24.999 · Patrono R$ 25.000+
      Contato: Tom Ashe · (21) 99109-4882 · tom@favelabrass.org
      Carimbo: julho de 2026
      ================================================================
@@ -160,19 +167,6 @@
   color: var(--white);
   margin-bottom: 1.4rem;
 }
-.conta-pending {
-  display: flex;
-  gap: 0.9rem;
-  align-items: flex-start;
-  border: 1px dashed rgba(254, 241, 0, 0.6);
-  border-radius: 8px;
-  padding: 1.3rem 1.5rem;
-  background: rgba(254, 241, 0, 0.06);
-  color: var(--text);
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-.conta-pending strong { color: var(--yellow); }
 .conta-note { margin-top: 1.4rem; font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; max-width: 70ch; }
 .conta-note strong { color: var(--white); }
 .conta-label { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.5rem; }
@@ -182,36 +176,6 @@
 .conta-copy { padding: 0.7rem 1.7rem; font-size: 0.9rem; }
 .conta-tip { margin-top: 1.3rem; font-size: 0.86rem; color: var(--text-dim); line-height: 1.6; max-width: 72ch; }
 @media (max-width: 560px) { .conta-grid { grid-template-columns: 1fr; } }
-
-/* Tier ladder */
-.tiers { display: grid; gap: 0.9rem; }
-.tier {
-  display: grid;
-  grid-template-columns: 180px 180px 1fr;
-  gap: 1.4rem;
-  align-items: baseline;
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-  padding: 1.4rem 1.7rem;
-  background: rgba(255,255,255,0.03);
-  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
-}
-.tier:hover { border-color: rgba(254, 241, 0, 0.4); transform: translateX(3px); }
-.tier-name {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 480;
-  color: var(--yellow);
-}
-.tier-range {
-  font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--white);
-}
-.tier-benefit { font-size: 0.95rem; color: var(--text-dim); }
-.tier-top { border-color: rgba(254, 241, 0, 0.45); background: linear-gradient(130deg, rgba(254,241,0,0.06), rgba(255,255,255,0.02)); }
-.tiers-note { margin-top: 1.6rem; font-size: 0.88rem; color: var(--text-faint); max-width: 66ch; line-height: 1.6; }
 
 /* Example calc callout */
 .calc {
@@ -267,8 +231,6 @@
 @media (max-width: 900px) {
   .paths { grid-template-columns: 1fr; }
   .passos { grid-template-columns: 1fr 1fr; }
-  .tier { grid-template-columns: 1fr; gap: 0.4rem; }
-  .tier-range { color: var(--text-dim); }
 }
 @media (max-width: 560px) {
   .passos { grid-template-columns: 1fr; }
@@ -288,10 +250,10 @@
   <div class="nav-links" id="navLinks">
     <a href="#como">Como funciona</a>
     <a href="#doar">Como doar</a>
-    <a href="#tiers">Reconhecimento</a>
+    <a href="#passos">Passo a passo</a>
     <a href="#duvidas">Dúvidas</a>
     <a href="../2026/">Empresa? Veja o projeto</a>
-    <a href="https://wa.me/5521991094882" target="_blank" rel="noopener" class="nav-cta">Fale com a gente</a>
+    <a href="https://wa.me/5521991094882?text=Ol%C3%A1%21%20Quero%20fazer%20uma%20doa%C3%A7%C3%A3o%20incentivada%20para%20a%20Favela%20Brass." target="_blank" rel="noopener" class="nav-cta">Fale com a gente</a>
   </div>
 </nav>
 
@@ -440,7 +402,7 @@
     </dl>
     <button type="button" class="btn btn-yellow conta-copy" onclick="copyConta(this)">Copiar dados da conta</button>
     <p class="conta-tip">Faça o seu PIX (ou transferência) para a agência e conta acima, pela opção "dados bancários" do seu banco, e não para uma chave PIX. É a conta de captação oficial do projeto, vinculada ao PRONAC 254750 e monitorada pelo Ministério da Cultura, e é o depósito nela, e só nela, que gera o seu recibo de mecenato.</p>
-    <p class="conta-note"><strong>Por que a partir da sua própria conta?</strong> Feito do seu CPF, o depósito já chega identificado com o seu nome, então sabemos exatamente quem doou e conseguimos emitir o seu recibo. Depois de doar, mande uma mensagem com o seu nome completo e CPF para agilizar a emissão. Foi assim que a Favela Brass captou R$ 115 mil de pessoas físicas em dezembro de 2025.</p>
+    <p class="conta-note"><strong>Por que a partir da sua própria conta?</strong> Feito do seu CPF, o depósito já chega identificado com o seu nome, então sabemos exatamente quem doou e conseguimos emitir o seu recibo. Depois de doar, <a href="https://wa.me/5521991094882?text=Ol%C3%A1%21%20Fiz%20um%20PIX%20para%20a%20conta%20de%20capta%C3%A7%C3%A3o%20da%20Favela%20Brass%20%28PRONAC%20254750%29.%20Segue%20para%20o%20recibo%20de%20mecenato%3A%20Nome%20completo%3A%20/%20CPF%3A%20" target="_blank" rel="noopener" style="color: var(--yellow); text-decoration: underline; text-underline-offset: 3px;">mande uma mensagem com o seu nome completo e CPF</a> para agilizar a emissão. Foi assim que a Favela Brass captou R$ 115 mil de pessoas físicas em dezembro de 2025.</p>
   </div>
 </section>
 
@@ -450,55 +412,10 @@
   <figcaption class="photo-cap">Favela Brass · Rio de Janeiro</figcaption>
 </figure>
 
-<!-- ===================== 04 RECONHECIMENTO / TIERS ===================== -->
-<section class="section" id="tiers">
-  <div class="section-head reveal">
-    <div class="section-no"><span>04</span><hr></div>
-    <div class="section-titles">
-      <h2>Faça parte por dentro</h2>
-      <p>Doar não é só abater imposto. Cada nível de apoio aproxima você do dia a dia do projeto, dos ensaios aos palcos.</p>
-    </div>
-  </div>
-
-  <div class="tiers reveal">
-    <div class="tier">
-      <span class="tier-name">Aprendiz</span>
-      <span class="tier-range">R$ 250 a R$ 999</span>
-      <span class="tier-benefit">Nome no site, relatório de impacto anual e convite para um evento aberto por ano.</span>
-    </div>
-    <div class="tier">
-      <span class="tier-name">Sopro</span>
-      <span class="tier-range">R$ 1.000 a R$ 2.499</span>
-      <span class="tier-benefit">Tudo do nível anterior, mais convite para um evento de cultivo (coquetel com Tom e a Banda Preta).</span>
-    </div>
-    <div class="tier">
-      <span class="tier-name">Cortejo</span>
-      <span class="tier-range">R$ 2.500 a R$ 4.999</span>
-      <span class="tier-benefit">Mais convites para três a quatro eventos por ano e o seu nome no relatório anual.</span>
-    </div>
-    <div class="tier">
-      <span class="tier-name">Banda</span>
-      <span class="tier-range">R$ 5.000 a R$ 9.999</span>
-      <span class="tier-benefit">Mais um jantar exclusivo com Tom e Wesley e lugares premium na festa de aniversário da Favela Brass.</span>
-    </div>
-    <div class="tier">
-      <span class="tier-name">Maestro</span>
-      <span class="tier-range">R$ 10.000 a R$ 24.999</span>
-      <span class="tier-benefit">Mais uma apresentação privada da Banda Preta no local que você escolher, em data combinada.</span>
-    </div>
-    <div class="tier tier-top">
-      <span class="tier-name">Patrono</span>
-      <span class="tier-range">R$ 25.000 ou mais</span>
-      <span class="tier-benefit">Mais uma bolsa nomeada para um aluno durante um ano e convite para a gala de fim de ano.</span>
-    </div>
-  </div>
-  <p class="tiers-note">Os benefícios são baseados em experiências, não em contrapartidas de marca. O nível é definido pelo total doado no ano. Fale com a gente para desenhar o seu apoio.</p>
-</section>
-
-<!-- ===================== 05 DÚVIDAS ===================== -->
+<!-- ===================== 04 DÚVIDAS ===================== -->
 <section class="section" id="duvidas">
   <div class="section-head reveal">
-    <div class="section-no"><span>05</span><hr></div>
+    <div class="section-no"><span>04</span><hr></div>
     <div class="section-titles">
       <h2>Dúvidas frequentes</h2>
     </div>
@@ -523,7 +440,7 @@
     </details>
     <details>
       <summary>Até quando posso doar?</summary>
-      <p>O depósito para valer no Imposto de Renda deste ano precisa ser feito até 31 de dezembro de 2026, dentro do ano-calendário. Depois dessa data, a doação conta para o exercício seguinte.</p>
+      <p>O depósito para valer no Imposto de Renda deste ano precisa ser feito até 31 de dezembro de 2026, dentro do ano-calendário. Não deixe para os últimos dias úteis do ano: faça com folga para garantir o processamento e a emissão do recibo. Depois dessa data, a doação conta para o exercício seguinte.</p>
     </details>
     <details>
       <summary>Moro fora do Brasil ou declaro no simplificado. Posso ajudar?</summary>
@@ -539,7 +456,7 @@
     <div class="cta-side">
       <p>Uma mensagem é o suficiente para começar. A gente explica o passo a passo, ajuda a estimar o seu limite e emite o recibo. Fale direto com o fundador.</p>
       <div class="cta-actions">
-        <a href="https://wa.me/5521991094882" target="_blank" rel="noopener" class="btn btn-purple">WhatsApp</a>
+        <a href="https://wa.me/5521991094882?text=Ol%C3%A1%21%20Quero%20fazer%20uma%20doa%C3%A7%C3%A3o%20incentivada%20para%20a%20Favela%20Brass." target="_blank" rel="noopener" class="btn btn-purple">WhatsApp</a>
         <a href="mailto:tom@favelabrass.org" class="btn btn-ink-ghost">tom@favelabrass.org</a>
       </div>
       <p class="cta-fine">Projeto aprovado pela Lei Federal de Incentivo à Cultura (Lei Rouanet) · PRONAC 254750 · Associação Musical Favela Brass · CNPJ 37.332.605/0001-90</p>
@@ -571,7 +488,6 @@
       <h3>Doar</h3>
       <a href="#como">Como funciona</a>
       <a href="#passos">Passo a passo</a>
-      <a href="#tiers">Reconhecimento</a>
       <a href="#duvidas">Dúvidas</a>
     </div>
     <div class="footer-col">
