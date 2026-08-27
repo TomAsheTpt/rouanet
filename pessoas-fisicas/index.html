@@ -29,7 +29,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CN4VGSPB3Z');</script>
 
 <!-- ================================================================
-     PF-DATA START · fontes verificadas em 09/07/2026
+     PF-DATA START · fontes verificadas em 27/08/2026
      Página EVERGREEN (não versionada por ano). Ao virar o ano, atualizar
      só o PRONAC e o prazo abaixo; as mecânicas de PF Rouanet não mudam.
 
@@ -38,6 +38,32 @@
      Dedução PF:           100% do valor, até 6% do IR devido, só na declaração completa
      Valor mínimo:         NÃO EXISTE (Tom, 10/07/2026: não inventar piso; qualquer valor)
      Precedente PF:         R$ 115 mil captados de PF em dez/2025 (uma mensagem da Margo Black)
+
+     PENDENTE (ago/2026): o PRONAC 2027 (265026) foi aprovado e a sua conta
+     de captação no BB foi ativada em 18/08/2026. Decisão do Tom em aberto:
+     a campanha de dezembro/2026 aponta para qual projeto (254750 até 31/12
+     ou já o 265026)? Ao trocar: atualizar PRONAC + conta em TODOS os pontos
+     (hero kicker, seção 01, conta-box, copyConta(), wa.me do recibo, CTA
+     fine print, footer). Dados da conta 265026: com Raíssa/Tom.
+
+     CALCULADORA (dados verificados 27/08/2026, ano-calendário 2026):
+       Tabela progressiva ANUAL (mensal vigente desde mai/2025 x12):
+         até 29.145,60 isento · 7,5% ded 2.185,92 · 15% ded 4.729,89
+         (limite 45.012,60) · 22,5% ded 8.105,84 (limite 55.976,16) ·
+         27,5% ded 10.904,64. Faixa 7,5% até 33.919,80.
+       Redução Lei 15.270/2025 (art. 11-A da Lei 9.250/95), declaração anual:
+         rend. tributável anual até 60.000 -> imposto zero;
+         60.000,01 a 88.200,00 -> redução = 8.429,73 - 0,095575 x rend anual;
+         acima de 88.200 -> sem redução. Limitada ao imposto apurado.
+       INSS empregado 2026 (parcela a deduzir): 7,5% até 1.621,00 ·
+         9% ded 24,32 até 2.902,84 · 12% ded 111,40 até 4.354,27 ·
+         14% ded 198,49 até o teto 8.475,55 (desconto máx 988,09).
+       Dedução por dependente: 189,59/mês (2.275,08/ano).
+       Limite de 6%: compartilhado entre as destinações incentivadas
+       (cultura, audiovisual, esporte, fundos da criança e do idoso).
+       Ordem redução x dedução de incentivo ainda sem norma da Receita:
+       a calculadora aplica a redução ANTES do teto de 6% (estimativa
+       conservadora, nunca promete mais do que o real).
 
      POLÍTICA (Tom, 10/07/2026): NÃO publicar contrapartidas/tiers para PF.
      Doação é doação; o cultivo de doadores (convites, eventos, agradecimentos)
@@ -130,7 +156,7 @@
 .path .btn { margin-top: auto; align-self: flex-start; }
 
 /* Passo a passo */
-.passos { counter-reset: passo; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.2rem, 2.5vw, 2rem); }
+.passos { counter-reset: passo; display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: clamp(1.2rem, 2.5vw, 2rem); }
 .passo {
   position: relative;
   border: 1px solid var(--rule);
@@ -198,6 +224,70 @@
 .calc p { color: var(--text-dim); max-width: 56ch; }
 .calc p strong { color: var(--white); }
 
+/* Calculadora */
+.calcx {
+  border: 1px solid rgba(254, 241, 0, 0.4);
+  border-radius: 10px;
+  background: linear-gradient(130deg, rgba(254, 241, 0, 0.07) 0%, rgba(255, 255, 255, 0.02) 55%);
+  padding: clamp(2rem, 4vw, 3rem);
+  max-width: 900px;
+}
+.calcx-modes { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.calcx-mode {
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+.calcx-mode[aria-pressed="true"] {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--purple-ink);
+}
+.calcx-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.4rem 2rem; margin-bottom: 1.8rem; }
+.calcx-fields[hidden], .calcx-result[hidden] { display: none; }
+.calcx-field label { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.calcx-field .calcx-input-wrap { display: flex; align-items: baseline; gap: 0.5rem; border-bottom: 2px solid var(--rule); padding-bottom: 0.4rem; transition: border-color 0.2s; }
+.calcx-field .calcx-input-wrap:focus-within { border-color: var(--yellow); }
+.calcx-field .calcx-prefix { font-family: var(--font-display); font-size: 1.2rem; color: var(--text-faint); }
+.calcx-field input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: 1.6rem;
+  font-weight: 460;
+  color: var(--white);
+}
+.calcx-field input::placeholder { color: var(--text-faint); opacity: 0.6; }
+.calcx-hint { margin-top: 0.55rem; font-size: 0.84rem; color: var(--text-dim); line-height: 1.5; }
+.calcx-result { border-top: 1px solid var(--rule); padding-top: 1.8rem; }
+.calcx-result-label { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.6rem; }
+.calcx-result-fig {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 460;
+  color: var(--yellow);
+  line-height: 1.05;
+}
+.calcx-result-sub { margin-top: 0.9rem; font-size: 0.95rem; color: var(--text-dim); line-height: 1.6; max-width: 62ch; }
+.calcx-result-sub strong { color: var(--white); }
+.calcx-breakdown { margin-top: 1.1rem; font-size: 0.86rem; color: var(--text-faint); line-height: 1.7; }
+.calcx-zero { margin-top: 0.9rem; font-size: 0.95rem; color: var(--text-dim); line-height: 1.6; max-width: 62ch; }
+.calcx-zero a { color: var(--yellow); text-decoration: underline; text-underline-offset: 3px; }
+.calcx-fine { margin-top: 1.8rem; font-size: 0.8rem; color: var(--text-faint); line-height: 1.6; max-width: 74ch; }
+.calcx-cta { margin-top: 1.6rem; }
+html.js .calcx-nojs { display: none; }
+html:not(.js) .calcx-app { display: none; }
+
 /* FAQ */
 .faq { display: grid; gap: 0; max-width: 820px; border-top: 1px solid var(--rule); }
 .faq details {
@@ -249,6 +339,7 @@
   </button>
   <div class="nav-links" id="navLinks">
     <a href="#como">Como funciona</a>
+    <a href="#calculadora">Calculadora</a>
     <a href="#doar">Como doar</a>
     <a href="#passos">Passo a passo</a>
     <a href="#duvidas">Dúvidas</a>
@@ -311,7 +402,67 @@
 
   <div class="calc reveal">
     <span class="calc-fig">R$ 10.000<br>vira R$ 600</span>
-    <p>Se o seu Imposto de Renda devido no ano é de <strong>R$ 10.000</strong>, você pode destinar até <strong>R$ 600</strong> à Favela Brass e deduzir esse valor integralmente. O custo real para você é zero: é imposto que sairia do seu bolso de qualquer forma. O exemplo é ilustrativo; o seu limite é 6% do seu IR devido.</p>
+    <p>Se o seu Imposto de Renda devido no ano é de <strong>R$ 10.000</strong>, você pode destinar até <strong>R$ 600</strong> à Favela Brass e deduzir esse valor integralmente. O custo real para você é zero: é imposto que sairia do seu bolso de qualquer forma. Para saber o seu número, use a <a href="#calculadora" style="color: var(--yellow); text-decoration: underline; text-underline-offset: 3px;">calculadora logo abaixo</a>.</p>
+  </div>
+</section>
+
+<!-- ===================== 02 CALCULADORA ===================== -->
+<section class="section" id="calculadora">
+  <div class="section-head reveal">
+    <div class="section-no"><span>02</span><hr></div>
+    <div class="section-titles">
+      <h2>Calcule o seu limite</h2>
+      <p>O seu limite é 6% do imposto devido no ano. Se você sabe esse valor, digite direto. Se não sabe, estime pela sua renda.</p>
+    </div>
+  </div>
+
+  <div class="calcx reveal">
+    <div class="calcx-app">
+      <div class="calcx-modes" role="group" aria-label="Modo de cálculo">
+        <button type="button" class="calcx-mode" id="modeImposto" aria-pressed="true" onclick="setMode('imposto')">Sei meu imposto devido</button>
+        <button type="button" class="calcx-mode" id="modeRenda" aria-pressed="false" onclick="setMode('renda')">Quero estimar pela renda</button>
+      </div>
+
+      <div class="calcx-fields" id="fieldsImposto">
+        <div class="calcx-field">
+          <label for="inImposto">Imposto devido no ano</label>
+          <div class="calcx-input-wrap"><span class="calcx-prefix">R$</span><input id="inImposto" type="text" inputmode="numeric" placeholder="10.000" autocomplete="off"></div>
+          <p class="calcx-hint">É a linha "Imposto devido" da sua última declaração, ou pergunte ao seu contador.</p>
+        </div>
+      </div>
+
+      <div class="calcx-fields" id="fieldsRenda" hidden>
+        <div class="calcx-field">
+          <label for="inRenda">Renda tributável por mês</label>
+          <div class="calcx-input-wrap"><span class="calcx-prefix">R$</span><input id="inRenda" type="text" inputmode="numeric" placeholder="12.000" autocomplete="off"></div>
+          <p class="calcx-hint">Salário bruto, pró-labore ou aposentadoria, antes dos descontos.</p>
+        </div>
+        <div class="calcx-field">
+          <label for="inDep">Dependentes na declaração</label>
+          <div class="calcx-input-wrap"><input id="inDep" type="text" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+          <p class="calcx-hint">Filhos e outros dependentes que você declara.</p>
+        </div>
+      </div>
+
+      <div class="calcx-result" id="calcxResult" hidden>
+        <span class="calcx-result-label">Você pode destinar até</span>
+        <div class="calcx-result-fig" id="outTeto">R$ 0</div>
+        <p class="calcx-result-sub" id="outSub"></p>
+        <p class="calcx-breakdown" id="outBreak" hidden></p>
+        <div class="calcx-cta"><a href="#passos" class="btn btn-yellow">Ver o passo a passo</a></div>
+      </div>
+
+      <div class="calcx-result" id="calcxZero" hidden>
+        <p class="calcx-zero" id="outZeroMsg"></p>
+        <div class="calcx-cta"><a href="https://favelabrass.org/colaborar.html" target="_blank" rel="noopener" class="btn btn-ghost">Conhecer a doação direta</a></div>
+      </div>
+
+      <p class="calcx-fine">A calculadora é uma estimativa para o ano-calendário de 2026, já considerando a nova faixa de isenção do Imposto de Renda (Lei 15.270/2025). Ela não substitui a sua declaração nem o seu contador: o valor exato do imposto devido depende das suas deduções (saúde, educação, previdência). O limite de 6% é compartilhado com outras destinações incentivadas que você fizer no mesmo ano, como fundos da criança, do idoso e do esporte. Na dúvida sobre o seu caso, <a href="https://wa.me/5521991094882?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20estimar%20quanto%20posso%20destinar%20%C3%A0%20Favela%20Brass%20via%20Lei%20Rouanet." target="_blank" rel="noopener" style="color: var(--yellow); text-decoration: underline; text-underline-offset: 3px;">fale com a gente</a>.</p>
+    </div>
+
+    <div class="calcx-nojs">
+      <p class="calcx-zero">A calculadora precisa de JavaScript. A regra é simples: você pode destinar até <strong style="color: var(--white);">6% do seu imposto devido no ano</strong> e deduzir 100% do valor. Exemplo: imposto devido de R$ 10.000 permite destinar até R$ 600. Se quiser ajuda para estimar, <a href="https://wa.me/5521991094882" target="_blank" rel="noopener" style="color: var(--yellow);">fale com a gente</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -321,10 +472,10 @@
   <figcaption class="photo-cap">Cortejo · Favela Brass</figcaption>
 </figure>
 
-<!-- ===================== 02 COMO DOAR ===================== -->
+<!-- ===================== 03 COMO DOAR ===================== -->
 <section class="section" id="doar">
   <div class="section-head reveal">
-    <div class="section-no"><span>02</span><hr></div>
+    <div class="section-no"><span>03</span><hr></div>
     <div class="section-titles">
       <h2>Dois caminhos para apoiar</h2>
       <p>Um com benefício fiscal, outro aberto a qualquer pessoa. Escolha o que faz sentido para você.</p>
@@ -360,10 +511,10 @@
   </div>
 </section>
 
-<!-- ===================== 03 PASSO A PASSO ===================== -->
+<!-- ===================== 04 PASSO A PASSO ===================== -->
 <section class="section" id="passos">
   <div class="section-head reveal">
-    <div class="section-no"><span>03</span><hr></div>
+    <div class="section-no"><span>04</span><hr></div>
     <div class="section-titles">
       <h2>Passo a passo da doação incentivada</h2>
       <p>Cinco passos, feitos uma vez por ano. O depósito identificado é o que garante o seu recibo.</p>
@@ -377,15 +528,19 @@
     </div>
     <div class="passo">
       <h3>Decida o valor</h3>
-      <p>Qualquer valor, até 6% do seu IR devido. Se não sabe o seu teto, a gente ajuda a estimar.</p>
+      <p>Qualquer valor, até 6% do seu IR devido. Use a <a href="#calculadora" style="color: var(--yellow); text-decoration: underline; text-underline-offset: 3px;">calculadora</a> para saber o seu limite.</p>
     </div>
     <div class="passo">
       <h3>Faça o PIX identificado</h3>
       <p>Da sua própria conta, para a conta de captação do projeto (Ag 1569-5, C/C 39895-0), até 31 de dezembro.</p>
     </div>
     <div class="passo">
-      <h3>Receba o recibo</h3>
-      <p>Nos avise com nome completo e CPF, e emitimos o seu recibo de mecenato.</p>
+      <h3>Envie nome e CPF</h3>
+      <p>Mande uma mensagem no WhatsApp com o seu nome completo e CPF, e emitimos o seu recibo de mecenato.</p>
+    </div>
+    <div class="passo">
+      <h3>Declare e deduza</h3>
+      <p>Na declaração do ano seguinte, informe a doação com o recibo e abata 100% do valor do seu imposto.</p>
     </div>
   </div>
 
@@ -412,10 +567,10 @@
   <figcaption class="photo-cap">Favela Brass · Rio de Janeiro</figcaption>
 </figure>
 
-<!-- ===================== 04 DÚVIDAS ===================== -->
+<!-- ===================== 05 DÚVIDAS ===================== -->
 <section class="section" id="duvidas">
   <div class="section-head reveal">
-    <div class="section-no"><span>04</span><hr></div>
+    <div class="section-no"><span>05</span><hr></div>
     <div class="section-titles">
       <h2>Dúvidas frequentes</h2>
     </div>
@@ -428,7 +583,11 @@
     </details>
     <details>
       <summary>Quanto posso destinar?</summary>
-      <p>Até 6% do seu Imposto de Renda devido no ano. Não é 6% da sua renda, é 6% do imposto. Não existe valor mínimo. Se não souber o seu teto, a gente ajuda a estimar com base na sua situação.</p>
+      <p>Até 6% do seu Imposto de Renda devido no ano. Não é 6% da sua renda, é 6% do imposto. Não existe valor mínimo. A <a href="#calculadora">calculadora</a> estima o seu limite em segundos. Vale saber: esse limite de 6% é compartilhado com outras destinações incentivadas que você fizer no mesmo ano, como fundos da criança e do adolescente, do idoso e do esporte.</p>
+    </details>
+    <details>
+      <summary>A nova isenção do Imposto de Renda muda alguma coisa?</summary>
+      <p>Desde 2026, quem tem renda tributável de até R$ 5.000 por mês não paga mais Imposto de Renda, e quem ganha até R$ 7.350 paga menos. Se você deixou de pagar imposto, não há valor para destinar via Lei Rouanet, mas pode apoiar pela doação direta. Se você paga menos imposto, o seu limite de 6% fica menor. A calculadora já considera a nova regra.</p>
     </details>
     <details>
       <summary>O custo é realmente zero?</summary>
@@ -487,6 +646,7 @@
     <div class="footer-col">
       <h3>Doar</h3>
       <a href="#como">Como funciona</a>
+      <a href="#calculadora">Calculadora</a>
       <a href="#passos">Passo a passo</a>
       <a href="#duvidas">Dúvidas</a>
     </div>
@@ -504,7 +664,7 @@
   </div>
   <div class="footer-bottom">
     <p>Associação Musical Favela Brass · CNPJ 37.332.605/0001-90</p>
-    <p>Projeto aprovado pela Lei Federal de Incentivo à Cultura (Lei Rouanet) · PRONAC 254750 · Dados de julho de 2026</p>
+    <p>Projeto aprovado pela Lei Federal de Incentivo à Cultura (Lei Rouanet) · PRONAC 254750 · Dados de agosto de 2026</p>
   </div>
 </footer>
 
@@ -530,6 +690,94 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
 }), {threshold: 0.12});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ===== Calculadora do incentivo (ano-calendário 2026) =====
+// Fontes no bloco PF-DATA no topo do arquivo. Estimativa conservadora:
+// a redução da Lei 15.270/2025 é aplicada antes do teto de 6%.
+function parseBRL(str) {
+  const s = String(str).replace(/[^\d,]/g, '').replace(',', '.');
+  const v = parseFloat(s);
+  return isNaN(v) ? 0 : v;
+}
+function fmtBRL(v) {
+  return 'R$ ' + Math.floor(v).toLocaleString('pt-BR');
+}
+function impostoTabelaAnual(base) {
+  if (base <= 29145.60) return 0;
+  if (base <= 33919.80) return base * 0.075 - 2185.92;
+  if (base <= 45012.60) return base * 0.15  - 4729.89;
+  if (base <= 55976.16) return base * 0.225 - 8105.84;
+  return base * 0.275 - 10904.64;
+}
+function reducaoLei15270(rendAnual, imposto) {
+  if (rendAnual <= 60000) return imposto;
+  if (rendAnual <= 88200) return Math.min(imposto, Math.max(0, 8429.73 - 0.095575 * rendAnual));
+  return 0;
+}
+function inssMensal(sal) {
+  const b = Math.min(sal, 8475.55);
+  if (b <= 1621.00) return b * 0.075;
+  if (b <= 2902.84) return b * 0.09 - 24.32;
+  if (b <= 4354.27) return b * 0.12 - 111.40;
+  return b * 0.14 - 198.49;
+}
+
+let calcMode = 'imposto';
+function setMode(m) {
+  calcMode = m;
+  document.getElementById('modeImposto').setAttribute('aria-pressed', m === 'imposto');
+  document.getElementById('modeRenda').setAttribute('aria-pressed', m === 'renda');
+  document.getElementById('fieldsImposto').hidden = (m !== 'imposto');
+  document.getElementById('fieldsRenda').hidden = (m !== 'renda');
+  calcular();
+}
+function calcular() {
+  const result = document.getElementById('calcxResult');
+  const zero = document.getElementById('calcxZero');
+  const outBreak = document.getElementById('outBreak');
+  let teto = 0, impostoDevido = 0, temEntrada = false, estimado = false;
+
+  if (calcMode === 'imposto') {
+    impostoDevido = parseBRL(document.getElementById('inImposto').value);
+    temEntrada = impostoDevido > 0;
+  } else {
+    estimado = true;
+    const rendMensal = parseBRL(document.getElementById('inRenda').value);
+    const dep = Math.max(0, Math.floor(parseBRL(document.getElementById('inDep').value)));
+    temEntrada = rendMensal > 0;
+    if (temEntrada) {
+      const rendAnual = rendMensal * 12;
+      const baseAnual = Math.max(0, (rendMensal - inssMensal(rendMensal) - 189.59 * dep) * 12);
+      const bruto = impostoTabelaAnual(baseAnual);
+      impostoDevido = Math.max(0, bruto - reducaoLei15270(rendAnual, bruto));
+    }
+  }
+  teto = impostoDevido * 0.06;
+
+  if (!temEntrada) { result.hidden = true; zero.hidden = true; return; }
+
+  if (teto >= 1) {
+    result.hidden = false; zero.hidden = true;
+    document.getElementById('outTeto').textContent = fmtBRL(teto);
+    document.getElementById('outSub').innerHTML =
+      'Você doa até <strong>' + fmtBRL(teto) + '</strong> para a Favela Brass, recebe o recibo de mecenato e deduz 100% do valor na declaração do ano que vem. É imposto que você já pagaria: o custo final para você é <strong>zero</strong>.';
+    if (estimado) {
+      outBreak.hidden = false;
+      outBreak.textContent = 'Estimativa com imposto devido de aproximadamente ' + fmtBRL(impostoDevido) + ' no ano, já descontando INSS e dependentes. O valor exato está na sua declaração.';
+    } else {
+      outBreak.hidden = true;
+    }
+  } else {
+    result.hidden = true; zero.hidden = false;
+    document.getElementById('outZeroMsg').innerHTML = estimado
+      ? 'Pela nossa estimativa, com essa renda você não paga Imposto de Renda em 2026 (a nova faixa de isenção vai até R$ 5.000 por mês). Não há imposto para destinar, mas você ainda pode apoiar a Favela Brass pela <a href="https://favelabrass.org/colaborar.html" target="_blank" rel="noopener">doação direta</a>, de qualquer valor.'
+      : 'Sem imposto devido não há valor para destinar via Lei Rouanet. Você ainda pode apoiar a Favela Brass pela <a href="https://favelabrass.org/colaborar.html" target="_blank" rel="noopener">doação direta</a>, de qualquer valor.';
+  }
+}
+['inImposto', 'inRenda', 'inDep'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', calcular);
+});
 
 // Copy captação account details
 function copyConta(btn) {
