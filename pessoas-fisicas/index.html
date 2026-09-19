@@ -42,7 +42,8 @@
                            ano, atualizar só o prazo, o PRONAC continua)
      Dedução PF:           100% do valor, até 6% do IR devido, só na declaração completa
      Valor mínimo:         NÃO EXISTE (Tom, 10/07/2026: não inventar piso; qualquer valor)
-     Precedente PF:         R$ 115 mil captados de PF em dez/2025 (uma mensagem da Margo Black)
+     Precedente PF:         R$ 115 mil captados de PF em dez/2025 (cerca de R$ 80 mil de uma
+                           única família; o restante via a rede da Margo Black e outros; Tom, 16/09/2026)
 
      Conta de captação do PRONAC 265026 (ativada no BB em 18/08/2026;
      dados informados pelo Tom em 27/08/2026):
@@ -87,6 +88,13 @@
        Conta geral:  Banco do Brasil · Agência 3118-6 · C/C 43386-1
        Chave PIX:    CNPJ 37.332.605/0001-90
        PayPal:       hosted_button_id 5AYPUD7U7UGK2 (internacional)
+
+     Ficha "Para o seu contador" (seção 05 + /pessoas-fisicas/contador/, 19/09/2026):
+       existe porque os grandes doadores passam a doação ao contador e pedem
+       "algo para mandar para ele" (Tom). Código 41 / ficha "Doações Efetuadas"
+       conferidos em guias de instituições culturais (Santa Marcelina, Unibes);
+       a página da Receita sobre o tema é restrita. Reconferir no programa
+       DIRPF 2027 quando sair.
 
      Recibo de mecenato (Tom, 27/08/2026: "se a Raíssa pede, precisa"):
      doador envia comprovante + nome completo, CPF, endereço completo com
@@ -211,6 +219,8 @@
 .conta-grid dd { font-family: var(--font-display); font-optical-sizing: auto; font-size: 1.3rem; font-weight: 460; color: var(--white); }
 .conta-copy { padding: 0.7rem 1.7rem; font-size: 0.9rem; }
 .conta-tip { margin-top: 1.3rem; font-size: 0.86rem; color: var(--text-dim); line-height: 1.6; max-width: 72ch; }
+.ficha-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.ficha-grid dd { font-size: 1.05rem; }
 @media (max-width: 560px) { .conta-grid { grid-template-columns: 1fr; } }
 
 /* Example calc callout */
@@ -352,6 +362,7 @@ html:not(.js) .calcx-app { display: none; }
     <a href="#calculadora">Calculadora</a>
     <a href="#doar">Como doar</a>
     <a href="#passos">Passo a passo</a>
+    <a href="#contador">Contador</a>
     <a href="#duvidas">Dúvidas</a>
     <a href="../2027/">Empresa? Veja o projeto</a>
     <a href="https://wa.me/5521991094882?text=Ol%C3%A1%21%20Quero%20fazer%20uma%20doa%C3%A7%C3%A3o%20incentivada%20para%20a%20Favela%20Brass." target="_blank" rel="noopener" class="nav-cta">Fale com a gente</a>
@@ -578,9 +589,42 @@ html:not(.js) .calcx-app { display: none; }
 </figure>
 
 <!-- ===================== 05 DÚVIDAS ===================== -->
-<section class="section" id="duvidas">
+<!-- ===================== 05 PARA O SEU CONTADOR ===================== -->
+<section class="section" id="contador">
   <div class="section-head reveal">
     <div class="section-no"><span>05</span><hr></div>
+    <div class="section-titles">
+      <h2>Para o seu contador</h2>
+      <p>Se quem cuida da sua declaração é o contador, mande esta ficha. Tem tudo o que ele precisa para lançar a doação e emitir a dedução.</p>
+    </div>
+  </div>
+
+  <div class="conta-box reveal" id="fichaContador">
+    <h3>Ficha da doação incentivada</h3>
+    <span class="conta-label">Lei Rouanet · Pessoa física · Ano-calendário 2026</span>
+    <dl class="conta-grid ficha-grid">
+      <div style="grid-column: 1 / -1;"><dt>Beneficiária</dt><dd>Associação Musical Favela Brass · CNPJ 37.332.605/0001-90</dd></div>
+      <div style="grid-column: 1 / -1;"><dt>Projeto</dt><dd>Plano Anual de Atividades Favela Brass - 2027 · PRONAC 265026</dd></div>
+      <div><dt>Enquadramento</dt><dd>Lei 8.313/1991, art. 18 (doação)</dd></div>
+      <div><dt>Aprovação</dt><dd>Portaria MinC nº 439/2026, DOU de 16/07/2026</dd></div>
+      <div><dt>Conta de captação</dt><dd>Banco do Brasil · Ag 1569-5 · C/C 41.056-X</dd></div>
+      <div><dt>Forma do depósito</dt><dd>PIX via dados bancários, da conta do próprio doador</dd></div>
+      <div><dt>Prazo do depósito</dt><dd>31/12/2026</dd></div>
+      <div><dt>Comprovação</dt><dd>Recibo de mecenato (modelo MinC) + comprovante do depósito</dd></div>
+      <div><dt>Na declaração (modelo completo)</dt><dd>Ficha "Doações Efetuadas" · código 41 · Incentivo à Cultura</dd></div>
+      <div><dt>Dedução</dt><dd>100% do valor, dentro do teto de 6% do imposto devido</dd></div>
+    </dl>
+    <div class="ficha-actions">
+      <button type="button" class="btn btn-yellow conta-copy" onclick="copyFicha(this)">Copiar ficha</button>
+      <a class="btn btn-ghost conta-copy" href="contador/" target="_blank" rel="noopener">Abrir versão para imprimir</a>
+    </div>
+    <p class="conta-tip">O teto de 6% é compartilhado com as outras destinações incentivadas da pessoa física (fundos da criança e do adolescente, fundos da pessoa idosa, incentivo ao esporte e audiovisual). O recibo de mecenato é emitido pela associação em até 48 horas depois que recebemos o comprovante e os dados do doador (nome completo, CPF, endereço com CEP, telefone e e-mail) pelo WhatsApp ou por <a href="mailto:admin@favelabrass.org" style="color: var(--yellow); text-decoration: underline; text-underline-offset: 3px;">admin@favelabrass.org</a>. Dúvidas do contador: o mesmo e-mail responde.</p>
+  </div>
+</section>
+
+<section class="section" id="duvidas">
+  <div class="section-head reveal">
+    <div class="section-no"><span>06</span><hr></div>
     <div class="section-titles">
       <h2>Dúvidas frequentes</h2>
     </div>
@@ -790,6 +834,25 @@ function calcular() {
 });
 
 // Copy captação account details
+function copyFicha(btn) {
+  const txt = [
+    'FICHA DA DOAÇÃO INCENTIVADA · LEI ROUANET · PESSOA FÍSICA · ANO-CALENDÁRIO 2026',
+    'Beneficiária: Associação Musical Favela Brass · CNPJ 37.332.605/0001-90',
+    'Projeto: Plano Anual de Atividades Favela Brass - 2027 · PRONAC 265026',
+    'Enquadramento: Lei 8.313/1991, art. 18 (doação) · Aprovação: Portaria MinC nº 439/2026, DOU de 16/07/2026',
+    'Conta de captação: Banco do Brasil · Agência 1569-5 · Conta corrente 41.056-X · Titular: Associação Musical Favela Brass',
+    'Forma do depósito: PIX via dados bancários (agência e conta), da conta do próprio doador · Prazo: 31/12/2026',
+    'Comprovação: recibo de mecenato (modelo MinC), emitido pela associação em até 48h contra comprovante + dados do doador, e comprovante do depósito',
+    'Na declaração (modelo completo): ficha "Doações Efetuadas" · código 41 · Incentivo à Cultura · informar CNPJ, nome do projeto e valor',
+    'Dedução: 100% do valor, dentro do teto de 6% do imposto devido (teto compartilhado com as outras destinações incentivadas)',
+    'Contato: admin@favelabrass.org · rouanet.favelabrass.org/pessoas-fisicas/contador/'
+  ].join('\n');
+  navigator.clipboard.writeText(txt).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copiado!';
+    setTimeout(() => { btn.textContent = original; }, 1800);
+  });
+}
 function copyConta(btn) {
   const txt = 'Banco do Brasil · Agência 1569-5 · Conta corrente 41.056-X · Associação Musical Favela Brass · CNPJ 37.332.605/0001-90';
   navigator.clipboard.writeText(txt).then(() => {
