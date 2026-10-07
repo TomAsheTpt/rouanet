@@ -173,6 +173,19 @@
 .path-direta li::before { background: var(--text-faint); }
 .path .btn { margin-top: auto; align-self: flex-start; }
 
+/* Doação direta: Pix + opções dentro do próprio cartão */
+.direta-pix { display: flex; gap: 1.2rem; align-items: center; margin-bottom: 1.3rem; flex-wrap: wrap; }
+.direta-pix img { width: 120px; height: 120px; border-radius: 6px; background: #fff; padding: 6px; flex: none; }
+.direta-pix-info { display: grid; gap: 0.45rem; justify-items: start; }
+.direta-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
+.direta-key { font-family: var(--font-display); font-optical-sizing: auto; font-size: clamp(1.25rem, 2vw, 1.55rem); font-weight: 480; color: var(--white); letter-spacing: 0.01em; }
+.path .direta-copy { margin-top: 0; padding: 0.55rem 1.2rem; font-size: 0.82rem; background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); }
+.path .direta-copy:hover { border-color: var(--yellow); color: var(--yellow); }
+.path ul.direta-opcoes { margin-bottom: 1.1rem; }
+.direta-opcoes a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--text-faint); }
+.direta-opcoes a:hover { color: var(--white); text-decoration-color: var(--yellow); }
+.direta-nota { font-size: 0.84rem; line-height: 1.55; color: var(--text-faint); margin-top: auto; }
+
 /* Passo a passo */
 .passos { counter-reset: passo; display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: clamp(1.2rem, 2.5vw, 2rem); }
 .passo {
@@ -475,7 +488,7 @@ html:not(.js) .calcx-app { display: none; }
 
       <div class="calcx-result" id="calcxZero" hidden>
         <p class="calcx-zero" id="outZeroMsg"></p>
-        <div class="calcx-cta"><a href="https://favelabrass.org/colaborar.html" target="_blank" rel="noopener" class="btn btn-ghost">Conhecer a doação direta</a></div>
+        <div class="calcx-cta"><a href="#direta" class="btn btn-ghost">Ver a doação direta</a></div>
       </div>
 
       <p class="calcx-fine">A calculadora é uma estimativa para o ano-calendário de 2026, já considerando a nova faixa de isenção do Imposto de Renda (Lei 15.270/2025). Ela não substitui a sua declaração nem o seu contador: o valor exato do imposto devido depende das suas deduções (saúde, educação, previdência). O limite de 6% é compartilhado com outras destinações incentivadas que você fizer no mesmo ano, como fundos da criança, do idoso e do esporte. Na dúvida sobre o seu caso, <a href="https://wa.me/5521991094882?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20estimar%20quanto%20posso%20destinar%20%C3%A0%20Favela%20Brass%20via%20Lei%20Rouanet." target="_blank" rel="noopener" style="color: var(--yellow); text-decoration: underline; text-underline-offset: 3px;">fale com a gente</a>.</p>
@@ -517,17 +530,23 @@ html:not(.js) .calcx-app { display: none; }
       <a href="#passos" class="btn btn-yellow">Ver o passo a passo</a>
     </article>
 
-    <article class="path path-direta">
+    <article class="path path-direta" id="direta">
       <span class="path-tag">Sem incentivo fiscal</span>
       <h3>Doação direta</h3>
       <p>Para quem declara no simplificado, mora fora do Brasil, ou simplesmente quer doar qualquer valor, sem burocracia.</p>
-      <ul>
-        <li>Qualquer valor, qualquer pessoa</li>
-        <li>Aberta a estrangeiros e familiares no exterior</li>
-        <li>Cartão, PayPal ou pela página de doação</li>
-        <li>Sem benefício fiscal, sem recibo de mecenato</li>
+      <div class="direta-pix">
+        <img src="../img/pix-qr.png" alt="QR Code Pix para doação direta à Favela Brass" width="120" height="120" loading="lazy" decoding="async">
+        <div class="direta-pix-info">
+          <span class="direta-label">Pix · chave CNPJ</span>
+          <span class="direta-key">37.332.605/0001-90</span>
+          <button type="button" class="btn btn-ghost direta-copy" onclick="copyPixDireto(this)">Copiar código Pix</button>
+        </div>
+      </div>
+      <ul class="direta-opcoes">
+        <li><a href="https://benfeitoria.com/projeto/favelabrass" target="_blank" rel="noopener">Todo mês, no cartão, pela Benfeitoria</a></li>
+        <li><a href="https://favelabrass.org/donate/" target="_blank" rel="noopener">Do exterior, por PayPal</a></li>
       </ul>
-      <a href="https://favelabrass.org/colaborar.html" target="_blank" rel="noopener" class="btn btn-ghost">Doar direto</a>
+      <p class="direta-nota">Este Pix cai na conta geral da associação. Não serve para a doação incentivada, que vai por depósito identificado na conta do projeto. Sem benefício fiscal e sem recibo de mecenato.</p>
     </article>
   </div>
 </section>
@@ -657,7 +676,7 @@ html:not(.js) .calcx-app { display: none; }
     </details>
     <details>
       <summary>Moro fora do Brasil ou declaro no simplificado. Posso ajudar?</summary>
-      <p>Pode. Nesses casos a via é a doação direta, sem benefício fiscal, aberta a qualquer valor e a qualquer pessoa, inclusive do exterior por PayPal. Veja as opções na <a href="https://favelabrass.org/colaborar.html" target="_blank" rel="noopener">página de doação da Favela Brass</a>.</p>
+      <p>Pode. Nesses casos a via é a doação direta, sem benefício fiscal, aberta a qualquer valor e a qualquer pessoa, inclusive do exterior por PayPal. Do exterior, o caminho é o <a href="https://favelabrass.org/donate/" target="_blank" rel="noopener">PayPal da Favela Brass</a>; no Brasil, o Pix da <a href="#direta">doação direta</a>.</p>
     </details>
   </div>
 </section>
@@ -824,8 +843,8 @@ function calcular() {
   } else {
     result.hidden = true; zero.hidden = false;
     document.getElementById('outZeroMsg').innerHTML = estimado
-      ? 'Pela nossa estimativa, com essa renda você não paga Imposto de Renda em 2026 (a nova faixa de isenção vai até R$ 5.000 por mês). Não há imposto para destinar, mas você ainda pode apoiar a Favela Brass pela <a href="https://favelabrass.org/colaborar.html" target="_blank" rel="noopener">doação direta</a>, de qualquer valor.'
-      : 'Sem imposto devido não há valor para destinar via Lei Rouanet. Você ainda pode apoiar a Favela Brass pela <a href="https://favelabrass.org/colaborar.html" target="_blank" rel="noopener">doação direta</a>, de qualquer valor.';
+      ? 'Pela nossa estimativa, com essa renda você não paga Imposto de Renda em 2026 (a nova faixa de isenção vai até R$ 5.000 por mês). Não há imposto para destinar, mas você ainda pode apoiar a Favela Brass pela <a href="#direta">doação direta</a>, de qualquer valor.'
+      : 'Sem imposto devido não há valor para destinar via Lei Rouanet. Você ainda pode apoiar a Favela Brass pela <a href="#direta">doação direta</a>, de qualquer valor.';
   }
 }
 ['inImposto', 'inRenda', 'inDep'].forEach(id => {
@@ -834,6 +853,13 @@ function calcular() {
 });
 
 // Copy captação account details
+function copyPixDireto(btn) {
+  navigator.clipboard.writeText('00020126640014br.gov.bcb.pix0114373326050001900224Doacao para Favela Brass5204000053039865802BR5912FAVELA BRASS6014RIO DE JANEIRO622905251XqOu2YOzsguozXfTV3hROJZU630415E1').then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copiado!';
+    setTimeout(() => { btn.textContent = original; }, 1800);
+  });
+}
 function copyFicha(btn) {
   const txt = [
     'FICHA DA DOAÇÃO INCENTIVADA · LEI ROUANET · PESSOA FÍSICA · ANO-CALENDÁRIO 2026',
