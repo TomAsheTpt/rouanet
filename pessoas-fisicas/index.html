@@ -86,7 +86,9 @@
 
      Doação direta (SEM benefício fiscal, qualquer pessoa incl. estrangeiros):
        Conta geral:  Banco do Brasil · Agência 3118-6 · C/C 43386-1
-       Chave PIX:    CNPJ 37.332.605/0001-90
+       Chave PIX:    pix@favelabrass.org (e-mail). A chave CNPJ saiu da conta geral
+                     em 27/10/2026: o app do Nubank lia o CNPJ digitado como chave e
+                     mandava a doação incentivada para a conta geral.
        PayPal:       hosted_button_id 5AYPUD7U7UGK2 (internacional)
 
      Ficha "Para o seu contador" (seção 05 + /pessoas-fisicas/contador/, 19/09/2026):
@@ -537,8 +539,8 @@ html:not(.js) .calcx-app { display: none; }
       <div class="direta-pix">
         <img src="../img/pix-qr.png" alt="QR Code Pix para doação direta à Favela Brass" width="120" height="120" loading="lazy" decoding="async">
         <div class="direta-pix-info">
-          <span class="direta-label">Pix · chave CNPJ</span>
-          <span class="direta-key">37.332.605/0001-90</span>
+          <span class="direta-label">Pix · chave e-mail</span>
+          <span class="direta-key">pix@favelabrass.org</span>
           <button type="button" class="btn btn-ghost direta-copy" onclick="copyPixDireto(this)">Copiar código Pix</button>
         </div>
       </div>
@@ -854,7 +856,7 @@ function calcular() {
 
 // Copy captação account details
 function copyPixDireto(btn) {
-  navigator.clipboard.writeText('00020126640014br.gov.bcb.pix0114373326050001900224Doacao para Favela Brass5204000053039865802BR5912FAVELA BRASS6014RIO DE JANEIRO622905251XqOu2YOzsguozXfTV3hROJZU630415E1').then(() => {
+  navigator.clipboard.writeText('00020126690014br.gov.bcb.pix0119pix@favelabrass.org0224Doacao para Favela Brass5204000053039865802BR5912FAVELA BRASS6014RIO DE JANEIRO622905251XqOu2YOzsguozXfTV3hROJZU63046E98').then(() => {
     const original = btn.textContent;
     btn.textContent = 'Copiado!';
     setTimeout(() => { btn.textContent = original; }, 1800);
