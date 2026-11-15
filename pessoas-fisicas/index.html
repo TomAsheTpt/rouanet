@@ -72,8 +72,14 @@
        Limite de 6%: compartilhado entre as destinações incentivadas
        (cultura, audiovisual, esporte, fundos da criança e do idoso).
        Ordem redução x dedução de incentivo ainda sem norma da Receita:
-       a calculadora aplica a redução ANTES do teto de 6% (estimativa
-       conservadora, nunca promete mais do que o real).
+       a calculadora aplica a redução ANTES do teto de 6% (nesse ponto
+       a estimativa é conservadora).
+       Modo renda (revisto 15/11/2026): tipo de renda define a previdência
+       (salário = tabela INSS; pró-labore = 11% até o teto; aposentadoria
+       = nada; 65+ = parcela isenta 1.903,98/mês); campo opcional de outras
+       deduções no ano (saúde, educação, PGBL, pensão). SEM esse campo o
+       resultado SUPERESTIMA o limite de quem declara no completo: o texto
+       do resultado avisa. Entrada aceita 10.000, 10,000 e 10000.
 
      POLÍTICA (Tom, 10/07/2026): NÃO publicar contrapartidas/tiers para PF.
      Doação é doação; o cultivo de doadores (convites, eventos, agradecimentos)
@@ -302,6 +308,18 @@
   font-weight: 460;
   color: var(--white);
 }
+.calcx-field select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--white);
+  padding: 0.45rem 0;
+  cursor: pointer;
+}
+.calcx-field select option { color: #111; background: #fff; }
 .calcx-field input::placeholder { color: var(--text-faint); opacity: 0.6; }
 .calcx-hint { margin-top: 0.55rem; font-size: 0.84rem; color: var(--text-dim); line-height: 1.5; }
 .calcx-result { border-top: 1px solid var(--rule); padding-top: 1.8rem; }
@@ -469,19 +487,34 @@ html:not(.js) .calcx-app { display: none; }
 
       <div class="calcx-fields" id="fieldsRenda" hidden>
         <div class="calcx-field">
+          <label for="inTipo">Tipo de renda</label>
+          <div class="calcx-input-wrap"><select id="inTipo">
+            <option value="clt">Salário</option>
+            <option value="prolabore">Pró-labore</option>
+            <option value="apos">Aposentadoria (até 64 anos)</option>
+            <option value="apos65">Aposentadoria (65 anos ou mais)</option>
+          </select></div>
+          <p class="calcx-hint">Muda o desconto de previdência usado na conta.</p>
+        </div>
+        <div class="calcx-field">
           <label for="inRenda">Renda tributável por mês</label>
           <div class="calcx-input-wrap"><span class="calcx-prefix">R$</span><input id="inRenda" type="text" inputmode="numeric" placeholder="12.000" autocomplete="off"></div>
-          <p class="calcx-hint">Salário bruto, pró-labore ou aposentadoria, antes dos descontos.</p>
+          <p class="calcx-hint">Valor bruto, antes dos descontos. Não inclua lucros e dividendos: eles não entram nesta conta.</p>
         </div>
         <div class="calcx-field">
           <label for="inDep">Dependentes na declaração</label>
           <div class="calcx-input-wrap"><input id="inDep" type="text" inputmode="numeric" placeholder="0" autocomplete="off"></div>
           <p class="calcx-hint">Filhos e outros dependentes que você declara.</p>
         </div>
+        <div class="calcx-field">
+          <label for="inDed">Outras deduções no ano (opcional)</label>
+          <div class="calcx-input-wrap"><span class="calcx-prefix">R$</span><input id="inDed" type="text" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+          <p class="calcx-hint">O total que você deduz com saúde, educação, previdência privada (PGBL) e pensão alimentícia. Quanto mais perto do real, mais certo o resultado.</p>
+        </div>
       </div>
 
       <div class="calcx-result" id="calcxResult" hidden>
-        <span class="calcx-result-label">Você pode destinar até</span>
+        <span class="calcx-result-label" id="outLabel">Você pode destinar até</span>
         <div class="calcx-result-fig" id="outTeto">R$ 0</div>
         <p class="calcx-result-sub" id="outSub"></p>
         <p class="calcx-breakdown" id="outBreak" hidden></p>
@@ -774,8 +807,16 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 // Fontes no bloco PF-DATA no topo do arquivo. Estimativa conservadora:
 // a redução da Lei 15.270/2025 é aplicada antes do teto de 6%.
 function parseBRL(str) {
-  const s = String(str).replace(/[^\d,]/g, '').replace(',', '.');
-  const v = parseFloat(s);
+  // Aceita 10.000 · 10,000 · 10000 · 1.234,56 · 1,234.56. Um separador seguido
+  // de exatamente 3 dígitos é milhar; seguido de 1 ou 2 dígitos é decimal.
+  const s = String(str).replace(/[^\d.,]/g, '');
+  const last = Math.max(s.lastIndexOf(','), s.lastIndexOf('.'));
+  let inteiro = s, dec = '';
+  if (last !== -1) {
+    const cauda = s.length - last - 1;
+    if (cauda === 1 || cauda === 2) { inteiro = s.slice(0, last); dec = s.slice(last + 1); }
+  }
+  const v = parseFloat(inteiro.replace(/[.,]/g, '') + (dec ? '.' + dec : ''));
   return isNaN(v) ? 0 : v;
 }
 function fmtBRL(v) {
@@ -814,7 +855,7 @@ function calcular() {
   const result = document.getElementById('calcxResult');
   const zero = document.getElementById('calcxZero');
   const outBreak = document.getElementById('outBreak');
-  let teto = 0, impostoDevido = 0, temEntrada = false, estimado = false;
+  let teto = 0, impostoDevido = 0, temEntrada = false, estimado = false, outrasDed = 0;
 
   if (calcMode === 'imposto') {
     impostoDevido = parseBRL(document.getElementById('inImposto').value);
@@ -823,10 +864,19 @@ function calcular() {
     estimado = true;
     const rendMensal = parseBRL(document.getElementById('inRenda').value);
     const dep = Math.max(0, Math.floor(parseBRL(document.getElementById('inDep').value)));
+    const tipo = document.getElementById('inTipo').value;
+    outrasDed = parseBRL(document.getElementById('inDed').value);
     temEntrada = rendMensal > 0;
     if (temEntrada) {
-      const rendAnual = rendMensal * 12;
-      const baseAnual = Math.max(0, (rendMensal - inssMensal(rendMensal) - 189.59 * dep) * 12);
+      // Previdência: empregado pela tabela progressiva; pró-labore 11% até o teto;
+      // aposentadoria não contribui. 65+: parcela isenta de 1.903,98 por mês.
+      let prev = 0, isento = 0;
+      if (tipo === 'clt') prev = inssMensal(rendMensal);
+      else if (tipo === 'prolabore') prev = Math.min(rendMensal, 8475.55) * 0.11;
+      else if (tipo === 'apos65') isento = Math.min(rendMensal, 1903.98);
+      const tributavelMensal = rendMensal - isento;
+      const rendAnual = tributavelMensal * 12;
+      const baseAnual = Math.max(0, (tributavelMensal - prev - 189.59 * dep) * 12 - outrasDed);
       const bruto = impostoTabelaAnual(baseAnual);
       impostoDevido = Math.max(0, bruto - reducaoLei15270(rendAnual, bruto));
     }
@@ -838,11 +888,16 @@ function calcular() {
   if (teto >= 1) {
     result.hidden = false; zero.hidden = true;
     document.getElementById('outTeto').textContent = fmtBRL(teto);
+    document.getElementById('outLabel').textContent = estimado ? 'Você pode destinar cerca de' : 'Você pode destinar até';
     document.getElementById('outSub').innerHTML =
       'Você doa até <strong>' + fmtBRL(teto) + '</strong> para a Favela Brass, recebe o recibo de mecenato e deduz 100% do valor na declaração do ano que vem. É imposto que você já pagaria: o custo final para você é <strong>zero</strong>.';
     if (estimado) {
       outBreak.hidden = false;
-      outBreak.textContent = 'Estimativa com imposto devido de aproximadamente ' + fmtBRL(impostoDevido) + ' no ano, já descontando INSS e dependentes. O valor exato está na sua declaração.';
+      outBreak.textContent = 'Estimativa com imposto devido de aproximadamente ' + fmtBRL(impostoDevido) + ' no ano, descontando previdência e dependentes' +
+        (outrasDed > 0
+          ? ' e ' + fmtBRL(outrasDed) + ' de outras deduções.'
+          : '. Se você deduz saúde, educação ou previdência privada, informe o total acima: sem isso o resultado sai maior do que o seu limite real.') +
+        ' O que passar do limite não é deduzido. Para o número exato, use o imposto devido da sua declaração ou peça ao seu contador.';
     } else {
       outBreak.hidden = true;
     }
@@ -853,9 +908,9 @@ function calcular() {
       : 'Sem imposto devido não há valor para destinar via Lei Rouanet. Você ainda pode apoiar a Favela Brass pela <a href="#direta">doação direta</a>, de qualquer valor.';
   }
 }
-['inImposto', 'inRenda', 'inDep'].forEach(id => {
+['inImposto', 'inRenda', 'inDep', 'inDed', 'inTipo'].forEach(id => {
   const el = document.getElementById(id);
-  if (el) el.addEventListener('input', calcular);
+  if (el) { el.addEventListener('input', calcular); el.addEventListener('change', calcular); }
 });
 
 // Copy captação account details
